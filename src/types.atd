@@ -1,0 +1,151 @@
+type id <ocaml module="Types_ext" t="id"> = abstract
+
+type uri <ocaml module="Types_ext" t="uri"> = abstract
+
+type calendar <ocaml module="Types_ext" t="calendar"> = abstract
+
+type status_type <ocaml module="Types_ext" t="status_type"> = abstract
+
+type type' <ocaml module="Types_ext" t="type'"> = abstract
+
+type message_tags <ocaml module="Yojson.Safe" t="json"> = abstract
+
+type story_tags <ocaml module="Yojson.Safe" t="json"> = abstract
+
+type action = {
+  name : string; (*enum?*)
+  link : uri;
+}
+
+type application = {
+  name : string;
+  ?namespace : string option;
+  id : id;
+}
+
+type category = {
+  id : id;
+  name : string;
+}
+
+type user = {
+  name : string;
+  id : id;
+  ?category : string option; (*enum?*)
+  ?category_list : category list option;
+}
+
+type tag = {
+  id : id;
+  name : string;
+  ?type' <json name="type"> : string option; (*enum?*)
+  ?offset : int option;
+  ?length : int option;
+}
+
+type privacy = {
+  value : string;
+}
+
+type property = {
+  name : string; (*enum?*)
+  text : string;
+  ?href : uri option;
+}
+
+type shares = {
+  count : int;
+}
+
+type location = {
+  street : string;
+  ?city : string option;
+  ?state : string option;
+  ?country : string option;
+  zip : string;
+  latitude : float;
+  longitude : float;
+}
+
+type place = {
+  id : id;
+  name : string;
+  location : location;
+}
+
+type to' = {
+  data : user list;
+}
+
+type likes = {
+  data : user list;
+  paging : paging;
+}
+
+type comment = {
+  id : string;
+  from : user;
+  message : string;
+  can_remove : bool;
+  created_time : calendar;
+  like_count : int;
+  user_likes : bool;
+  ?message_tags : message_tags option;
+}
+
+type comments = {
+  data : comment list;
+  paging : paging;
+}
+
+type with_tags = {
+  data : tag list;
+}
+
+type post = {
+  id : string;
+  ?actions : action list option;
+  ?application : application option;
+  ?caption : string option;
+  ?comments : comments option;
+  created_time : calendar;
+  ?description : string option;
+  from : user;
+  ?icon : uri option;
+  ?is_hidden : bool option;
+  ?likes : likes option;
+  ?link : uri option;
+  ?message : string option;
+  ?message_tags : message_tags option;
+  ?name : string option;
+  ?object_id : id option;
+  ?picture : uri option;
+  ?place : place option;
+  privacy : privacy;
+  ?properties : property list option;
+  ?shares : shares option;
+  ?source : uri option;
+  ?status_type : status_type option;
+  ?story : string option;
+  ?story_tags : story_tags option;
+  ?to' <json name="to"> : to' option;
+  type' <json name="type"> : type';
+  updated_time : calendar;
+  ?with_tags : with_tags option;
+}
+
+type cursors = {
+  ?after : string option;
+  ?before : string option;
+}
+
+type paging = {
+  ?cursors : cursors option;
+  ?next : uri option;
+  ?previous : uri option;
+}
+
+type response = {
+  data : post list; 
+  ?paging : paging option;
+}

@@ -1,0 +1,23 @@
+OASISFormat: 0.4
+Name:        ofacebook
+Version:     0.1.0
+Synopsis:    Facebook Graph API client library for oCaml
+Authors:     Dominic Price
+License:     GPL-3
+Plugins:     META (0.4), DevFiles (0.4)
+BuildTools: ocamlbuild
+
+Library ofacebook
+  Path:       src
+  Findlibname: ofacebook
+  Modules: Api, Auth, Types
+  InternalModules: Types_ext, Util
+  Pack: true
+  BuildDepends:
+    atdgen,
+    calendar,
+    cohttp,
+    cohttp.lwt,
+    uri,
+    yojson
+    

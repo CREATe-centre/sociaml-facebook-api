@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 0727e3c7dbc26b78c679b54b5f7cafef)
+version = "0.1.0"
+description = "Facebook Graph API client library for oCaml"
+requires = "atdgen calendar cohttp cohttp.lwt uri yojson"
+archive(byte) = "ofacebook.cma"
+archive(byte, plugin) = "ofacebook.cma"
+archive(native) = "ofacebook.cmxa"
+archive(native, plugin) = "ofacebook.cmxs"
+exists_if = "ofacebook.cma"
+# OASIS_STOP
+

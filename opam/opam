@@ -1,0 +1,9 @@
+opam-version: "1"
+maintainer: "dominic.price@nottingham.ac.uk"
+build: [
+  ["oasis" "setup"]
+  ["./configure" "--prefix" prefix]
+  [make "build"]
+  [make "install"]
+]
+depends: ["atdgen" "calendar" "cohttp" "uri" "yojson"]
