@@ -59,6 +59,7 @@ opam-release:
 	@echo $(MD5)
 	export MD5=$(MD5) && cat opam/url | \
 		sed -e 's/%package%/$(PACKAGE).tar.bz2/' \
+		-e 's/%version%/$(VERSION)/' \
 		-e "s/%checksum%/$(MD5)/" \
 		> $(DIR)/url
 	cat opam/opam > $(DIR)/opam

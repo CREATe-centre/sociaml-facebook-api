@@ -1,2 +1,1 @@
-archive: "file:///home/pszdp1/Documents/Projects/Horizon/Repos/facebook/releases/ofacebook.0.1.0/%package%"
-checksum: "%checksum%"
+archive: "https://github.com/dominicjprice/ofacebook/archive/v%version%.tar.gz"
