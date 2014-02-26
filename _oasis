@@ -5,13 +5,14 @@ Synopsis:    Facebook Graph API client library for oCaml
 Authors:     Dominic Price
 License:     GPL-3
 Plugins:     META (0.4), DevFiles (0.4)
-BuildTools: ocamlbuild
+BuildTools:  ocamlbuild
+XDevFilesMakefileNoTargets: build
 
 Library ofacebook
   Path:       src
   Findlibname: ofacebook
   Modules: Api, Auth, Types
-  InternalModules: Types_ext, Util
+  #InternalModules: Types_ext, Util
   Pack: true
   BuildDepends:
     atdgen,

@@ -1,17 +1,18 @@
-ATDGEN_SOURCES = src/types.atd
-ATDGEN = atdgen  
+SRCDIR = src
+ATDGEN = atdgen
+ATDGEN_SOURCES = $(SRCDIR)/types.ml  
 ATDGEN_FLAGS = -j-std -j-custom-fields \
 	"(fun a b -> Printf.printf \"Unknown field: %s\\t(%s)\\n\" b a)"	
 
-RUN_ATDGEN:=$(shell $(ATDGEN) $(ATDGEN_FLAGS) $(ATDGEN_SOURCES))
+default: build
+
+$(SRCDIR)/%.ml: src/%.atd
+	$(ATDGEN) $(ATDGEN_FLAGS) $<
 
 # OASIS_START
-# DO NOT EDIT (digest: 7b2408909643717852b95f994b273fee)
+# DO NOT EDIT (digest: 7000995ee357d74b16bebaa9a87a2c1a)
 
 SETUP = ocaml setup.ml
-
-build: setup.data
-	$(SETUP) -build $(BUILDFLAGS)
 
 doc: setup.data build
 	$(SETUP) -doc $(DOCFLAGS)
@@ -40,9 +41,12 @@ distclean:
 setup.data:
 	$(SETUP) -configure $(CONFIGUREFLAGS)
 
-.PHONY: build doc test all install uninstall reinstall clean distclean configure
+.PHONY: doc test all install uninstall reinstall clean distclean configure
 
 # OASIS_STOP
+
+build: setup.data $(ATDGEN_SOURCES)
+	$(SETUP) -build $(BUILDFLAGS)
 
 opam-release:
 	$(eval NAME:=$(shell oasis query name))

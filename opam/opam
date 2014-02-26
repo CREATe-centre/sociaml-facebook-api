@@ -6,4 +6,4 @@ build: [
   [make "build"]
   [make "install"]
 ]
-depends: ["atdgen" "calendar" "cohttp" "uri" "yojson"]
+depends: ["atdgen" "calendar" "cohttp" "uri" "yojson" "oasis"]
