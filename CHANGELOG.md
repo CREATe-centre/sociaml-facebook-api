@@ -1,3 +1,8 @@
+0.2.1 / 2014-02-28
+==================
+
+  * Modified the build with a different directory structure.
+
 0.2.0 / 2014-02-28
 ==================
 
