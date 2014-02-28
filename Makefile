@@ -49,14 +49,16 @@ build: setup.data $(ATDGEN_SOURCES)
 	$(SETUP) -build $(BUILDFLAGS)
 
 opam-release:
+	$(eval TEMPLATE_DIR:=opam-template)
+	$(eval RELEASE_DIR:=opam-releases)
 	$(eval NAME:=$(shell oasis query name))
 	$(eval VERSION:=$(shell oasis query version))
 	$(eval PACKAGE:=$(NAME).$(VERSION))
-	$(eval DIR:=releases/$(PACKAGE))
+	$(eval DIR:=$(RELEASE_DIR)/$(PACKAGE))
 	mkdir -p $(DIR)
-	tar -cjf $(DIR)/$(PACKAGE).tar.bz2 \
+	tar -cjf $(RELEASE_DIR)/$(PACKAGE).tar.bz2 \
 		--transform 's,^\.,$(PACKAGE),' \
-		--exclude=_build --exclude=releases .
+		--exclude=_build --exclude=$(RELEASE_DIR) .
 	for f in descr opam url; do \
-		./oasis-vars "opam/$$f" > $(DIR)/$$f; \
+		./oasis-vars "$(TEMPLATE_DIR)/$$f" > $(DIR)/$$f; \
 	done

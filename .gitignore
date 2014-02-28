@@ -22,5 +22,5 @@ setup.log
 # Application configuration files
 *.conf
 
-# Release files
-releases
+# Opam release files
+opam-releases
