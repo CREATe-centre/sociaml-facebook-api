@@ -13,5 +13,6 @@ build: [
 ]
 remove: [
   [make "uninstall"]
+  ["ocamlfind" "remove" "${library(facebook).findlibname}"]
 ]
 depends: ["atdgen" "calendar" "cohttp" "uri" "yojson" "oasis"]

@@ -1,3 +1,8 @@
+0.2.2 / 2014-02-28
+==================
+
+  * Modified opam uninstall to remove library with findlib.
+
 0.2.1 / 2014-02-28
 ==================
 
