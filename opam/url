@@ -1,1 +1,1 @@
-archive: "https://github.com/dominicjprice/ofacebook/archive/v%version%.tar.gz"
+archive: "https://github.com/dominicjprice/facebook-sdk-for-ocaml/archive/v${version}.tar.gz"

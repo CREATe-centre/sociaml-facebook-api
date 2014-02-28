@@ -1,9 +1,17 @@
 opam-version: "1"
+name: "${name}"
+version: "${version}"
 maintainer: "dominic.price@nottingham.ac.uk"
+homepage: "${homepage}"
+authors: [ "${authors}" ]
+license: "${license}"
 build: [
   ["oasis" "setup"]
   ["./configure" "--prefix" prefix]
   [make "build"]
   [make "install"]
+]
+remove: [
+  [make "uninstall"]
 ]
 depends: ["atdgen" "calendar" "cohttp" "uri" "yojson" "oasis"]

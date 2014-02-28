@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: f6928d21c5187f0e45b868fa95f010bc) *)
+(* DO NOT EDIT (digest: d9299031d4f01399356720b09a952c4f) *)
 module OASISGettext = struct
 (* # 22 "src/oasis/OASISGettext.ml" *)
 
@@ -580,7 +580,7 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("ofacebook", ["src"], [])];
+     MyOCamlbuildBase.lib_ocaml = [("facebook", ["src"], [])];
      lib_c = [];
      flags = [];
      includes = []

@@ -1,18 +1,24 @@
 OASISFormat: 0.4
-Name:        ofacebook
-Version:     0.1.0
-Synopsis:    Facebook Graph API client library for oCaml
+Name:        facebook-sdk-for-ocaml
+Version:     0.2.0
+Synopsis:    Facebook Graph API SDK for OCaml
+Description: 
+  OCaml bindings to the Facebook graph API using cohttp and lwt threads.  
+  This package is still in the early stages of development and at present
+  only contains the functionality required to fetch a user's timeline.
 Authors:     Dominic Price
+Copyrights:  (C) 2014 Horizon Digital Economy Research
+LicenseFile: LICENSE
 License:     GPL-3
+Homepage:    https://github.com/dominicjprice/facebook-sdk-for-ocaml
 Plugins:     META (0.4), DevFiles (0.4)
-BuildTools:  ocamlbuild
+BuildTools:  ocamlbuild, make, awk
 XDevFilesMakefileNoTargets: build
 
-Library ofacebook
+Library facebook
   Path:       src
-  Findlibname: ofacebook
+  Findlibname: facebook
   Modules: Api, Auth, Types
-  #InternalModules: Types_ext, Util
   Pack: true
   BuildDepends:
     atdgen,
@@ -21,4 +27,9 @@ Library ofacebook
     cohttp.lwt,
     uri,
     yojson
-    
+
+SourceRepository head
+  Type:      git
+  Location:  https://github.com/dominicjprice/facebook-sdk-for-ocaml.git
+  Browser:   https://github.com/dominicjprice/facebook-sdk-for-ocaml
+  Branch:    master    

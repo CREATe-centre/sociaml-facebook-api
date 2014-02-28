@@ -57,17 +57,6 @@ opam-release:
 	tar -cjf $(DIR)/$(PACKAGE).tar.bz2 \
 		--transform 's,^\.,$(PACKAGE),' \
 		--exclude=_build --exclude=releases .
-	cp opam/descr $(DIR)
-	md5sum $(DIR)/$(PACKAGE).tar.bz2 | sed -e 's/\(\S*\)\s*.*$$/\1/' > $(DIR)/$(PACKAGE).md5
-	$(eval MD5=`cat $(DIR)/$(PACKAGE).md5`)
-	@echo $(MD5)
-	export MD5=$(MD5) && cat opam/url | \
-		sed -e 's/%package%/$(PACKAGE).tar.bz2/' \
-		-e 's/%version%/$(VERSION)/' \
-		-e "s/%checksum%/$(MD5)/" \
-		> $(DIR)/url
-	cat opam/opam > $(DIR)/opam
-
-
-	
-
+	for f in descr opam url; do \
+		./oasis-vars "opam/$$f" > $(DIR)/$$f; \
+	done
