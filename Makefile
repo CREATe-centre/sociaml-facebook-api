@@ -58,7 +58,15 @@ opam-release:
 	mkdir -p $(DIR)
 	tar -cjf $(RELEASE_DIR)/$(PACKAGE).tar.bz2 \
 		--transform 's,^\.,$(PACKAGE),' \
-		--exclude=_build --exclude=$(RELEASE_DIR) .
+		--exclude=_build \
+		--exclude=.git \
+		--exclude=.settings \
+		--exclude=.paths \
+		--exclude=.project \
+		--exclude=.settings \
+		--exclude=setup.data \
+		--exclude=setup.log \
+		--exclude=$(RELEASE_DIR) .
 	for f in descr opam url; do \
 		./oasis-vars "$(TEMPLATE_DIR)/$$f" > $(DIR)/$$f; \
 	done
