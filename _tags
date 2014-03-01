@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: ff0cd0ea95f862e459a32332a0710afd)
+# DO NOT EDIT (digest: c2ed3c8dd60b9d6fcdd91aa5ae3f4ba2)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -19,6 +19,7 @@
 "src/auth.cmx": for-pack(Facebook)
 "src/types.cmx": for-pack(Facebook)
 "src/types_ext.cmx": for-pack(Facebook)
+"src/util.cmx": for-pack(Facebook)
 <src/*.ml{,i}>: pkg_atdgen
 <src/*.ml{,i}>: pkg_calendar
 <src/*.ml{,i}>: pkg_cohttp

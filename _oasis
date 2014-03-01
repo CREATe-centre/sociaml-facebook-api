@@ -1,6 +1,6 @@
 OASISFormat: 0.4
 Name:        facebook-sdk-for-ocaml
-Version:     0.2.5
+Version:     0.2.6
 Synopsis:    Facebook Graph API SDK for OCaml
 Description: 
   OCaml bindings to the Facebook graph API using cohttp and lwt threads.  
@@ -18,7 +18,7 @@ XDevFilesMakefileNoTargets: build
 Library facebook
   Path:       src
   Findlibname: facebook
-  Modules: Api, Auth, Types, Types_ext
+  Modules: Api, Auth, Types, Types_ext, Util
   Pack: true
   BuildDepends:
     atdgen,
