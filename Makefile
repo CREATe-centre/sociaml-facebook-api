@@ -49,6 +49,7 @@ build: setup.data $(ATDGEN_SOURCES)
 	$(SETUP) -build $(BUILDFLAGS)
 
 opam-release:
+	oasis setup
 	$(eval TEMPLATE_DIR:=opam-template)
 	$(eval RELEASE_DIR:=opam-releases)
 	$(eval NAME:=$(shell oasis query name))

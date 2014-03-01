@@ -1,3 +1,13 @@
+0.2.5 / 2014-02-28
+==================
+
+  * Updated META file with correct version.
+
+0.2.4 / 2014-02-28
+==================
+
+  * Correct error in build script.
+
 0.2.3 / 2014-02-28
 ==================
 
