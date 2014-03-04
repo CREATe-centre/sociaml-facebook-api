@@ -27,6 +27,7 @@ type type' =
   | Link
   | Photo
   | Video
+  | Swf
   | Unknown of string
 
 let read_id = Js.read_int64
@@ -59,7 +60,7 @@ let read_status_type state buf =
   | "published_story" -> Published_story
   | "tagged_in_photo" -> Tagged_in_photo
   | "approved_friend" -> Approved_friend
-  | s -> print_endline ("Unknown status_type: " ^ s); Unknown s
+  | s -> Unknown s
 
 let write_status_type buf st =
   (match st with 
@@ -83,7 +84,8 @@ let read_type' state buf =
   | "link" -> Link
   | "photo" -> Photo
   | "video" -> Video
-  | s -> print_endline ("Unknown type': " ^ s); Unknown s
+  | "swf" -> Swf 
+  | s -> Unknown s
 
 let write_type' buf t = 
   (match t with
@@ -91,4 +93,5 @@ let write_type' buf t =
   | Link -> "link"
   | Photo -> "photo"
   | Video -> "video"
+  | Swf -> "swf"
   | Unknown u -> u) |> Js.write_string buf

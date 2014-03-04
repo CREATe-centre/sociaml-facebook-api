@@ -24,6 +24,7 @@ type type' =
   | Link
   | Photo
   | Video
+  | Swf
   | Unknown of string
 
 val read_id : Yojson.Safe.lexer_state -> Lexing.lexbuf -> id
