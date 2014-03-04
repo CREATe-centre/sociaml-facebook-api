@@ -12,14 +12,14 @@ LicenseFile: LICENSE
 License:     GPL-3
 Homepage:    https://github.com/dominicjprice/facebook-sdk-for-ocaml
 Plugins:     META (0.4), DevFiles (0.4)
-BuildTools:  ocamlbuild, make, awk
+BuildTools:  ocamlbuild, ocamldoc, make, awk
 XDevFilesMakefileNoTargets: build
 
 Library facebook
-  Path:       src
+  Path:        src
   Findlibname: facebook
-  Modules: Api, Auth, Types, Types_ext, Util
-  Pack: true
+  Modules:     Api, Auth, Types, Types_ext, Util
+  Pack:        true
   BuildDepends:
     atdgen,
     calendar,
@@ -27,6 +27,16 @@ Library facebook
     cohttp.lwt,
     uri,
     yojson
+    
+Document facebook
+  Type:       ocamlbuild (0.1.0)
+  Title:      Facebook-SDK-For-OCaml API Reference
+  Authors:    Dominic Price
+  Format:     HTML
+  Index:      index.html
+  InstallDir: $htmldir/facebook-sdk-for-ocaml
+  XOCamlbuildPath: src
+  XOCamlbuildLibraries: facebook
 
 SourceRepository head
   Type:      git
