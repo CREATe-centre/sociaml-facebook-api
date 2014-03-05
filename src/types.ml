@@ -253,7 +253,7 @@ let read_action = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
                   )
                 )
               | 'n' -> (
@@ -261,15 +261,15 @@ let read_action = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
                 )
           )
           else (
-            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
           )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -311,7 +311,7 @@ let read_action = (
                       1
                     )
                     else (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
                     )
                   )
                 | 'n' -> (
@@ -319,15 +319,15 @@ let read_action = (
                       0
                     )
                     else (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
                     )
                   )
                 | _ -> (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
                   )
             )
             else (
-              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
+              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 15, characters 14-60" (String.sub s pos len); -1
             )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -557,7 +557,7 @@ let read_application = (
                   2
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -565,7 +565,7 @@ let read_application = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                 )
               )
             | 9 -> (
@@ -573,11 +573,11 @@ let read_application = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -629,7 +629,7 @@ let read_application = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -637,7 +637,7 @@ let read_application = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                   )
                 )
               | 9 -> (
@@ -645,11 +645,11 @@ let read_application = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 20, characters 19-82" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -749,7 +749,7 @@ let read_category = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -757,11 +757,11 @@ let read_category = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -802,7 +802,7 @@ let read_category = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -810,11 +810,11 @@ let read_category = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 26, characters 16-49" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -1072,7 +1072,7 @@ let read_user = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -1080,7 +1080,7 @@ let read_user = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                 )
               )
             | 8 -> (
@@ -1088,7 +1088,7 @@ let read_user = (
                   2
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                 )
               )
             | 13 -> (
@@ -1096,11 +1096,11 @@ let read_user = (
                   3
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -1163,7 +1163,7 @@ let read_user = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -1171,7 +1171,7 @@ let read_user = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                   )
                 )
               | 8 -> (
@@ -1179,7 +1179,7 @@ let read_user = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                   )
                 )
               | 13 -> (
@@ -1187,11 +1187,11 @@ let read_user = (
                     3
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 31, characters 12-125" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -1467,7 +1467,7 @@ let read_tag = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -1477,7 +1477,7 @@ let read_tag = (
                         1
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                       )
                     )
                   | 't' -> (
@@ -1485,11 +1485,11 @@ let read_tag = (
                         2
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                     )
               )
             | 6 -> (
@@ -1499,7 +1499,7 @@ let read_tag = (
                         4
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                       )
                     )
                   | 'o' -> (
@@ -1507,15 +1507,15 @@ let read_tag = (
                         3
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                     )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -1589,7 +1589,7 @@ let read_tag = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -1599,7 +1599,7 @@ let read_tag = (
                           1
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                         )
                       )
                     | 't' -> (
@@ -1607,11 +1607,11 @@ let read_tag = (
                           2
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                       )
                 )
               | 6 -> (
@@ -1621,7 +1621,7 @@ let read_tag = (
                           4
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                         )
                       )
                     | 'o' -> (
@@ -1629,15 +1629,15 @@ let read_tag = (
                           3
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                       )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 38, characters 11-147" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -1747,7 +1747,7 @@ let read_privacy = (
             0
           )
           else (
-            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 46, characters 15-38" (String.sub s pos len); -1
+            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 46, characters 15-38" (String.sub s pos len); -1
           )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -1778,7 +1778,7 @@ let read_privacy = (
               0
             )
             else (
-              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 46, characters 15-38" (String.sub s pos len); -1
+              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 46, characters 15-38" (String.sub s pos len); -1
             )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -2001,7 +2001,7 @@ let read_property = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                   )
                 )
               | 'n' -> (
@@ -2009,7 +2009,7 @@ let read_property = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                   )
                 )
               | 't' -> (
@@ -2017,15 +2017,15 @@ let read_property = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                 )
           )
           else (
-            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
           )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -2078,7 +2078,7 @@ let read_property = (
                       2
                     )
                     else (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                     )
                   )
                 | 'n' -> (
@@ -2086,7 +2086,7 @@ let read_property = (
                       0
                     )
                     else (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                     )
                   )
                 | 't' -> (
@@ -2094,15 +2094,15 @@ let read_property = (
                       1
                     )
                     else (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                     )
                   )
                 | _ -> (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
                   )
             )
             else (
-              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
+              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 50, characters 16-87" (String.sub s pos len); -1
             )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -2190,7 +2190,7 @@ let read_shares = (
             0
           )
           else (
-            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 56, characters 14-34" (String.sub s pos len); -1
+            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 56, characters 14-34" (String.sub s pos len); -1
           )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -2221,7 +2221,7 @@ let read_shares = (
               0
             )
             else (
-              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 56, characters 14-34" (String.sub s pos len); -1
+              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 56, characters 14-34" (String.sub s pos len); -1
             )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -2358,7 +2358,7 @@ let read_location = (
                   4
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -2366,7 +2366,7 @@ let read_location = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | 5 -> (
@@ -2374,7 +2374,7 @@ let read_location = (
                   2
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | 6 -> (
@@ -2382,7 +2382,7 @@ let read_location = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | 7 -> (
@@ -2390,7 +2390,7 @@ let read_location = (
                   3
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | 8 -> (
@@ -2398,7 +2398,7 @@ let read_location = (
                   5
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | 9 -> (
@@ -2406,11 +2406,11 @@ let read_location = (
                   6
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -2500,7 +2500,7 @@ let read_location = (
                     4
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -2508,7 +2508,7 @@ let read_location = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | 5 -> (
@@ -2516,7 +2516,7 @@ let read_location = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | 6 -> (
@@ -2524,7 +2524,7 @@ let read_location = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | 7 -> (
@@ -2532,7 +2532,7 @@ let read_location = (
                     3
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | 8 -> (
@@ -2540,7 +2540,7 @@ let read_location = (
                     5
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | 9 -> (
@@ -2548,11 +2548,11 @@ let read_location = (
                     6
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 60, characters 16-176" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -2700,7 +2700,7 @@ let read_place = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -2708,7 +2708,7 @@ let read_place = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                 )
               )
             | 8 -> (
@@ -2716,11 +2716,11 @@ let read_place = (
                   2
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -2769,7 +2769,7 @@ let read_place = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -2777,7 +2777,7 @@ let read_place = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                   )
                 )
               | 8 -> (
@@ -2785,11 +2785,11 @@ let read_place = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 70, characters 13-69" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -2890,7 +2890,7 @@ let read_to' = (
             0
           )
           else (
-            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 76, characters 11-36" (String.sub s pos len); -1
+            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 76, characters 11-36" (String.sub s pos len); -1
           )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -2921,7 +2921,7 @@ let read_to' = (
               0
             )
             else (
-              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 76, characters 11-36" (String.sub s pos len); -1
+              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 76, characters 11-36" (String.sub s pos len); -1
             )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -3005,7 +3005,7 @@ let read_cursors = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
                 )
               )
             | 6 -> (
@@ -3013,11 +3013,11 @@ let read_cursors = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -3064,7 +3064,7 @@ let read_cursors = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
                   )
                 )
               | 6 -> (
@@ -3072,11 +3072,11 @@ let read_cursors = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 137, characters 15-73" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -3314,7 +3314,7 @@ let read_paging = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                 )
               )
             | 7 -> (
@@ -3322,7 +3322,7 @@ let read_paging = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                 )
               )
             | 8 -> (
@@ -3330,11 +3330,11 @@ let read_paging = (
                   2
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -3392,7 +3392,7 @@ let read_paging = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                   )
                 )
               | 7 -> (
@@ -3400,7 +3400,7 @@ let read_paging = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                   )
                 )
               | 8 -> (
@@ -3408,11 +3408,11 @@ let read_paging = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 142, characters 14-96" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -3517,7 +3517,7 @@ let read_likes = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
                 )
               )
             | 6 -> (
@@ -3525,11 +3525,11 @@ let read_likes = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -3570,7 +3570,7 @@ let read_likes = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
                   )
                 )
               | 6 -> (
@@ -3578,11 +3578,11 @@ let read_likes = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 80, characters 13-57" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -3862,7 +3862,7 @@ let read_comment = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                 )
               )
             | 4 -> (
@@ -3870,7 +3870,7 @@ let read_comment = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                 )
               )
             | 7 -> (
@@ -3878,7 +3878,7 @@ let read_comment = (
                   2
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                 )
               )
             | 10 -> (
@@ -3888,7 +3888,7 @@ let read_comment = (
                         3
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                     )
                   | 'l' -> (
@@ -3896,7 +3896,7 @@ let read_comment = (
                         5
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                     )
                   | 'u' -> (
@@ -3904,11 +3904,11 @@ let read_comment = (
                         6
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                     )
               )
             | 12 -> (
@@ -3918,7 +3918,7 @@ let read_comment = (
                         4
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                     )
                   | 'm' -> (
@@ -3926,15 +3926,15 @@ let read_comment = (
                         7
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                     )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -4026,7 +4026,7 @@ let read_comment = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                   )
                 )
               | 4 -> (
@@ -4034,7 +4034,7 @@ let read_comment = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                   )
                 )
               | 7 -> (
@@ -4042,7 +4042,7 @@ let read_comment = (
                     2
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                   )
                 )
               | 10 -> (
@@ -4052,7 +4052,7 @@ let read_comment = (
                           3
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                         )
                       )
                     | 'l' -> (
@@ -4060,7 +4060,7 @@ let read_comment = (
                           5
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                         )
                       )
                     | 'u' -> (
@@ -4068,11 +4068,11 @@ let read_comment = (
                           6
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                 )
               | 12 -> (
@@ -4082,7 +4082,7 @@ let read_comment = (
                           4
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                         )
                       )
                     | 'm' -> (
@@ -4090,15 +4090,15 @@ let read_comment = (
                           7
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                       )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 85, characters 15-198" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -4254,7 +4254,7 @@ let read_comments = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
                 )
               )
             | 6 -> (
@@ -4262,11 +4262,11 @@ let read_comments = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -4307,7 +4307,7 @@ let read_comments = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
                   )
                 )
               | 6 -> (
@@ -4315,11 +4315,11 @@ let read_comments = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 96, characters 16-63" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -4412,7 +4412,7 @@ let read_with_tags = (
             0
           )
           else (
-            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 101, characters 17-41" (String.sub s pos len); -1
+            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 101, characters 17-41" (String.sub s pos len); -1
           )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -4443,7 +4443,7 @@ let read_with_tags = (
               0
             )
             else (
-              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 101, characters 17-41" (String.sub s pos len); -1
+              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 101, characters 17-41" (String.sub s pos len); -1
             )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -6551,7 +6551,7 @@ let read_post = (
                         0
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 't' -> (
@@ -6559,11 +6559,11 @@ let read_post = (
                         25
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 4 -> (
@@ -6573,7 +6573,7 @@ let read_post = (
                         7
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'i' -> (
@@ -6581,7 +6581,7 @@ let read_post = (
                         8
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'l' -> (
@@ -6589,7 +6589,7 @@ let read_post = (
                         11
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'n' -> (
@@ -6597,7 +6597,7 @@ let read_post = (
                         14
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 't' -> (
@@ -6605,11 +6605,11 @@ let read_post = (
                         26
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 5 -> (
@@ -6619,7 +6619,7 @@ let read_post = (
                         10
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'p' -> (
@@ -6627,7 +6627,7 @@ let read_post = (
                         17
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 's' -> (
@@ -6635,11 +6635,11 @@ let read_post = (
                         23
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 6 -> (
@@ -6650,7 +6650,7 @@ let read_post = (
                           20
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'o' -> (
@@ -6658,15 +6658,15 @@ let read_post = (
                           21
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                 )
               )
             | 7 -> (
@@ -6676,7 +6676,7 @@ let read_post = (
                         1
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'c' -> (
@@ -6684,7 +6684,7 @@ let read_post = (
                         3
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'm' -> (
@@ -6692,7 +6692,7 @@ let read_post = (
                         12
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'p' -> (
@@ -6702,7 +6702,7 @@ let read_post = (
                               16
                             )
                             else (
-                              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                             )
                           )
                         | 'r' -> (
@@ -6710,15 +6710,15 @@ let read_post = (
                               18
                             )
                             else (
-                              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                             )
                           )
                         | _ -> (
-                            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                           )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 8 -> (
@@ -6726,7 +6726,7 @@ let read_post = (
                   4
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                 )
               )
             | 9 -> (
@@ -6736,7 +6736,7 @@ let read_post = (
                         9
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'o' -> (
@@ -6744,7 +6744,7 @@ let read_post = (
                         15
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'w' -> (
@@ -6752,11 +6752,11 @@ let read_post = (
                         28
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 10 -> (
@@ -6766,7 +6766,7 @@ let read_post = (
                         19
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 's' -> (
@@ -6774,11 +6774,11 @@ let read_post = (
                         24
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 11 -> (
@@ -6788,7 +6788,7 @@ let read_post = (
                         2
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'd' -> (
@@ -6796,7 +6796,7 @@ let read_post = (
                         6
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 's' -> (
@@ -6804,11 +6804,11 @@ let read_post = (
                         22
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | 12 -> (
@@ -6818,7 +6818,7 @@ let read_post = (
                         5
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'm' -> (
@@ -6826,7 +6826,7 @@ let read_post = (
                         13
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | 'u' -> (
@@ -6834,15 +6834,15 @@ let read_post = (
                         27
                       )
                       else (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                     )
                   | _ -> (
-                      ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                      ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                     )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -7170,7 +7170,7 @@ let read_post = (
                           0
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 't' -> (
@@ -7178,11 +7178,11 @@ let read_post = (
                           25
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 4 -> (
@@ -7192,7 +7192,7 @@ let read_post = (
                           7
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'i' -> (
@@ -7200,7 +7200,7 @@ let read_post = (
                           8
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'l' -> (
@@ -7208,7 +7208,7 @@ let read_post = (
                           11
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'n' -> (
@@ -7216,7 +7216,7 @@ let read_post = (
                           14
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 't' -> (
@@ -7224,11 +7224,11 @@ let read_post = (
                           26
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 5 -> (
@@ -7238,7 +7238,7 @@ let read_post = (
                           10
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'p' -> (
@@ -7246,7 +7246,7 @@ let read_post = (
                           17
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 's' -> (
@@ -7254,11 +7254,11 @@ let read_post = (
                           23
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 6 -> (
@@ -7269,7 +7269,7 @@ let read_post = (
                             20
                           )
                           else (
-                            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                           )
                         )
                       | 'o' -> (
@@ -7277,15 +7277,15 @@ let read_post = (
                             21
                           )
                           else (
-                            ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                            ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                           )
                         )
                       | _ -> (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                   )
                 )
               | 7 -> (
@@ -7295,7 +7295,7 @@ let read_post = (
                           1
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'c' -> (
@@ -7303,7 +7303,7 @@ let read_post = (
                           3
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'm' -> (
@@ -7311,7 +7311,7 @@ let read_post = (
                           12
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'p' -> (
@@ -7321,7 +7321,7 @@ let read_post = (
                                 16
                               )
                               else (
-                                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                               )
                             )
                           | 'r' -> (
@@ -7329,15 +7329,15 @@ let read_post = (
                                 18
                               )
                               else (
-                                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                               )
                             )
                           | _ -> (
-                              ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                              ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                             )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 8 -> (
@@ -7345,7 +7345,7 @@ let read_post = (
                     4
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                   )
                 )
               | 9 -> (
@@ -7355,7 +7355,7 @@ let read_post = (
                           9
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'o' -> (
@@ -7363,7 +7363,7 @@ let read_post = (
                           15
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'w' -> (
@@ -7371,11 +7371,11 @@ let read_post = (
                           28
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 10 -> (
@@ -7385,7 +7385,7 @@ let read_post = (
                           19
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 's' -> (
@@ -7393,11 +7393,11 @@ let read_post = (
                           24
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 11 -> (
@@ -7407,7 +7407,7 @@ let read_post = (
                           2
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'd' -> (
@@ -7415,7 +7415,7 @@ let read_post = (
                           6
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 's' -> (
@@ -7423,11 +7423,11 @@ let read_post = (
                           22
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | 12 -> (
@@ -7437,7 +7437,7 @@ let read_post = (
                           5
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'm' -> (
@@ -7445,7 +7445,7 @@ let read_post = (
                           13
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | 'u' -> (
@@ -7453,15 +7453,15 @@ let read_post = (
                           27
                         )
                         else (
-                          ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                          ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                         )
                       )
                     | _ -> (
-                        ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                        ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                       )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 105, characters 12-842" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in
@@ -7982,7 +7982,7 @@ let read_response = (
                   0
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
                 )
               )
             | 6 -> (
@@ -7990,11 +7990,11 @@ let read_response = (
                   1
                 )
                 else (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
                 )
               )
             | _ -> (
-                ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
+                ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
               )
       in
       let i = Yojson.Safe.map_ident p f lb in
@@ -8038,7 +8038,7 @@ let read_response = (
                     0
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
                   )
                 )
               | 6 -> (
@@ -8046,11 +8046,11 @@ let read_response = (
                     1
                   )
                   else (
-                    ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
+                    ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
                   )
                 )
               | _ -> (
-                  ((fun a b -> Printf.printf "Unknown field: %s\t(%s)\n" b a)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
+                  ((fun a b -> LOG "Unknown field: %s\t(%s)\n" b a LEVEL DEBUG;)) "File \"src/types.atd\", line 148, characters 16-67" (String.sub s pos len); -1
                 )
         in
         let i = Yojson.Safe.map_ident p f lb in

@@ -60,7 +60,7 @@ let read_status_type state buf =
   | "published_story" -> Published_story
   | "tagged_in_photo" -> Tagged_in_photo
   | "approved_friend" -> Approved_friend
-  | s -> Unknown s
+  | s -> LOG "Unknown status type: %s" s LEVEL DEBUG; Unknown s
 
 let write_status_type buf st =
   (match st with 
@@ -85,7 +85,7 @@ let read_type' state buf =
   | "photo" -> Photo
   | "video" -> Video
   | "swf" -> Swf 
-  | s -> Unknown s
+  | s -> LOG "Unknown post type: %s" s LEVEL DEBUG; Unknown s
 
 let write_type' buf t = 
   (match t with

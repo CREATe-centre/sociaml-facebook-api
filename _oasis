@@ -22,6 +22,7 @@ Library facebook
   Pack:        true
   BuildDepends:
     atdgen,
+    bolt,
     calendar,
     cohttp,
     cohttp.lwt,

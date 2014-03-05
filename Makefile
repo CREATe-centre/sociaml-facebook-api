@@ -2,7 +2,7 @@ SRCDIR = src
 ATDGEN = atdgen
 ATDGEN_SOURCES = $(SRCDIR)/types.ml  
 ATDGEN_FLAGS = -j-std -j-custom-fields \
-	"(fun a b -> Printf.printf \"Unknown field: %s\\t(%s)\\n\" b a)"	
+	"(fun a b -> LOG \"Unknown field: %s\\t(%s)\\n\" b a LEVEL DEBUG;)"	
 
 default: build
 

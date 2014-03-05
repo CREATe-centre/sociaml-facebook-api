@@ -591,4 +591,11 @@ let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
 # 593 "myocamlbuild.ml"
 (* OASIS_STOP *)
-Ocamlbuild_plugin.dispatch dispatch_default;;
+let mydispatch = function
+  | After_options -> Options.ocamldoc := S[ !Options.ocamldoc; A"-thread"; ]
+  | After_rules ->
+    flag ["ocaml"; "compile"; "logger"] & S[A"-ppopt"; A"-for-pack Facebook"];
+    flag ["ocaml"; "ocamldep"; "logger"] & S[A"-ppopt"; A"-for-pack Facebook"]
+  | _ -> ()
+
+let () = dispatch (fun e -> dispatch_default e; mydispatch e)
