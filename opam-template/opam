@@ -5,6 +5,7 @@ maintainer: "dominic.price@nottingham.ac.uk"
 homepage: "${homepage}"
 authors: [ "${authors}" ]
 license: "${license}"
+ocaml-version: [ >= "4.01.0" ]
 build: [
   ["oasis" "setup"]
   ["./configure" "--prefix" prefix]
@@ -19,7 +20,7 @@ depends: [
   "atdgen"
   "bolt"
   "calendar"
-  "cohttp" {>="0.10.0"}
+  "cohttp" { >= "0.10.0" }
   "lwt"
   "oasis"
   "ssl"
