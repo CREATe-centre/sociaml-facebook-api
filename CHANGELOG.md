@@ -1,3 +1,13 @@
+0.2.10 / 2014-03-10
+==================
+
+  * Added cohhtp version constraint and ssl as an Opam dependency.
+
+0.2.9 / 2014-03-10
+==================
+
+  * Rename to facebook-sdk.
+
 0.2.8 / 2014-03-07
 ==================
 
