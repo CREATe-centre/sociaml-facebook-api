@@ -1,6 +1,6 @@
 OASISFormat: 0.4
-Name:        facebook-sdk-for-ocaml
-Version:     0.2.8
+Name:        facebook-sdk
+Version:     0.2.9
 Synopsis:    Facebook Graph API SDK for OCaml
 Description: 
   OCaml bindings to the Facebook graph API using cohttp and lwt threads.  
@@ -10,7 +10,7 @@ Authors:     Dominic Price
 Copyrights:  (C) 2014 Horizon Digital Economy Research
 LicenseFile: LICENSE
 License:     GPL-3
-Homepage:    https://github.com/dominicjprice/facebook-sdk-for-ocaml
+Homepage:    https://github.com/dominicjprice/facebook-sdk
 Plugins:     META (0.4), DevFiles (0.4)
 BuildTools:  ocamlbuild, ocamldoc, make, awk
 XDevFilesMakefileNoTargets: build
@@ -31,16 +31,16 @@ Library facebook
     
 Document facebook
   Type:       ocamlbuild (0.1.0)
-  Title:      Facebook-SDK-For-OCaml API Reference
+  Title:      Facebook-SDK API Reference
   Authors:    Dominic Price
   Format:     HTML
   Index:      index.html
-  InstallDir: $htmldir/facebook-sdk-for-ocaml
+  InstallDir: $htmldir/facebook-sdk
   XOCamlbuildPath: src
   XOCamlbuildLibraries: facebook
 
 SourceRepository head
   Type:      git
-  Location:  https://github.com/dominicjprice/facebook-sdk-for-ocaml.git
-  Browser:   https://github.com/dominicjprice/facebook-sdk-for-ocaml
+  Location:  https://github.com/dominicjprice/facebook-sdk.git
+  Browser:   https://github.com/dominicjprice/facebook-sdk
   Branch:    master    
