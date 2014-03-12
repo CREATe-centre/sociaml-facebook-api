@@ -12,6 +12,10 @@ type message_tags <ocaml module="Yojson.Safe" t="json"> = abstract
 
 type story_tags <ocaml module="Yojson.Safe" t="json"> = abstract
 
+type publish_response = {
+  id : string;
+}
+
 type action = {
   name : string; (*enum?*)
   link : uri;

@@ -20,3 +20,6 @@ val error_to_string : error -> string
 
 val get_home_stream : 
   ?user_id:string -> ?since:int -> t -> Types.response response Lwt.t
+  
+val publish_message : ?user_id:string -> t -> string -> Types.publish_response response Lwt.t
+  

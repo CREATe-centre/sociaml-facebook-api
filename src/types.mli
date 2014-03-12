@@ -15,6 +15,8 @@ type message_tags = Yojson.Safe.json
 
 type story_tags = Yojson.Safe.json
 
+type publish_response = { id: string }
+
 type action = { name: string; link: uri }
 
 type application = { name: string; namespace: string option; id: id }
@@ -260,6 +262,32 @@ val read_story_tags :
 val story_tags_of_string :
   string -> story_tags
   (** Deserialize JSON data of type {!story_tags}. *)
+
+
+val write_publish_response :
+  Bi_outbuf.t -> publish_response -> unit
+  (** Output a JSON value of type {!publish_response}. *)
+
+val string_of_publish_response :
+  ?len:int -> publish_response -> string
+  (** Serialize a value of type {!publish_response}
+      into a JSON string.
+      @param len specifies the initial length
+                 of the buffer used internally.
+                 Default: 1024. *)
+
+val read_publish_response :
+  Yojson.Safe.lexer_state -> Lexing.lexbuf -> publish_response
+  (** Input JSON data of type {!publish_response}. *)
+
+val publish_response_of_string :
+  string -> publish_response
+  (** Deserialize JSON data of type {!publish_response}. *)
+
+val create_publish_response :
+  id: string ->
+  unit -> publish_response
+  (** Create a record of type {!publish_response}. *)
 
 
 val write_action :
