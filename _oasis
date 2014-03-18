@@ -13,21 +13,43 @@ License:     GPL-3
 Homepage:    https://github.com/dominicjprice/facebook-sdk
 Plugins:     META (0.4), DevFiles (0.4)
 BuildTools:  ocamlbuild, ocamldoc, make, awk
-XDevFilesMakefileNoTargets: build
 
 Library facebook
   Path:        src
   Findlibname: facebook
-  Modules:     Api, Auth, Types, Types_ext, Util
+  Modules:     Api, Api_cohttp, Auth, User, Util
   Pack:        true
   BuildDepends:
-    atdgen,
     bolt,
     calendar,
     cohttp,
     cohttp.lwt,
-    uri,
-    yojson
+    core,
+    lwt,
+    lwt.syntax,
+    meta_conv,
+    meta_conv.syntax,
+    tiny_json,
+    tiny_json_conv,
+    uri
+    
+Executable main
+  Path:      src
+  MainIs:    main.ml
+  CompiledObject: native
+  BuildDepends:
+    bolt,
+    calendar,
+    cohttp,
+    cohttp.lwt,
+    core,
+    lwt,
+    lwt.syntax,
+    meta_conv,
+    meta_conv.syntax,
+    tiny_json,
+    tiny_json_conv,
+    uri
     
 Document facebook
   Type:       ocamlbuild (0.1.0)

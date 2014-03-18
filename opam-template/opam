@@ -17,13 +17,14 @@ remove: [
   ["ocamlfind" "remove" "${library(facebook).findlibname}"]
 ]
 depends: [
-  "atdgen"
   "bolt"
   "calendar"
   "cohttp" { >= "0.10.0" }
   "lwt"
+  "meta_conv"
   "oasis"
   "ssl"
+  "tiny_json"
+  "tiny_json_conv"
   "uri"
-  "yojson"
 ]

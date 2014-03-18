@@ -1,8 +1,9 @@
 # OASIS_START
-# DO NOT EDIT (digest: 85319b3b8e1c1ae6f27de82e64de7ab1)
+# DO NOT EDIT (digest: f6c51922738ba105fd647b1892c233fd)
 version = "0.2.12"
 description = "Facebook Graph API SDK for OCaml"
-requires = "atdgen bolt calendar cohttp cohttp.lwt uri yojson"
+requires =
+"bolt calendar cohttp cohttp.lwt core lwt lwt.syntax meta_conv meta_conv.syntax tiny_json tiny_json_conv uri"
 archive(byte) = "facebook.cma"
 archive(byte, plugin) = "facebook.cma"
 archive(native) = "facebook.cmxa"

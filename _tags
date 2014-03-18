@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: a22c6436bb47c42959f0b4cae2c97f97)
+# DO NOT EDIT (digest: 92b175dbe49dcfcef0df40e16cccd15a)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -16,17 +16,37 @@
 # Library facebook
 "src/facebook.cmxs": use_facebook
 "src/api.cmx": for-pack(Facebook)
+"src/api_cohttp.cmx": for-pack(Facebook)
 "src/auth.cmx": for-pack(Facebook)
-"src/types.cmx": for-pack(Facebook)
-"src/types_ext.cmx": for-pack(Facebook)
+"src/user.cmx": for-pack(Facebook)
 "src/util.cmx": for-pack(Facebook)
-<src/*.ml{,i}>: pkg_atdgen
+# Executable main
+"src/main.native": pkg_bolt
+"src/main.native": pkg_calendar
+"src/main.native": pkg_cohttp
+"src/main.native": pkg_cohttp.lwt
+"src/main.native": pkg_core
+"src/main.native": pkg_lwt
+"src/main.native": pkg_lwt.syntax
+"src/main.native": pkg_meta_conv
+"src/main.native": pkg_meta_conv.syntax
+"src/main.native": pkg_tiny_json
+"src/main.native": pkg_tiny_json_conv
+"src/main.native": pkg_uri
 <src/*.ml{,i}>: pkg_bolt
 <src/*.ml{,i}>: pkg_calendar
 <src/*.ml{,i}>: pkg_cohttp
 <src/*.ml{,i}>: pkg_cohttp.lwt
+<src/*.ml{,i}>: pkg_core
+<src/*.ml{,i}>: pkg_lwt
+<src/*.ml{,i}>: pkg_lwt.syntax
+<src/*.ml{,i}>: pkg_meta_conv
+<src/*.ml{,i}>: pkg_meta_conv.syntax
+<src/*.ml{,i}>: pkg_tiny_json
+<src/*.ml{,i}>: pkg_tiny_json_conv
 <src/*.ml{,i}>: pkg_uri
-<src/*.ml{,i}>: pkg_yojson
 # OASIS_STOP
 <src/*.ml{,i}>: syntax_camlp4o
 <src/*.ml{,i}>: logger
+<src/*.ml{,i}>: thread
+"src/main.native": thread
