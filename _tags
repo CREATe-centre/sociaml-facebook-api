@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 92b175dbe49dcfcef0df40e16cccd15a)
+# DO NOT EDIT (digest: aef7842f2d893dac86c6a59dc601e704)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -13,40 +13,63 @@
 ".git": not_hygienic
 "_darcs": -traverse
 "_darcs": not_hygienic
+# Library types
+"src/types/types.cmxs": use_types
+"src/types/common.cmx": for-pack(Types)
+"src/types/user.cmx": for-pack(Types)
+<src/types/*.ml{,i}>: pkg_calendar
+<src/types/*.ml{,i}>: pkg_csv
+<src/types/*.ml{,i}>: pkg_meta_conv
+<src/types/*.ml{,i}>: pkg_meta_conv.syntax
+<src/types/*.ml{,i}>: pkg_tiny_json_conv
+<src/types/*.ml{,i}>: pkg_uri
 # Library facebook
 "src/facebook.cmxs": use_facebook
 "src/api.cmx": for-pack(Facebook)
-"src/api_cohttp.cmx": for-pack(Facebook)
 "src/auth.cmx": for-pack(Facebook)
-"src/user.cmx": for-pack(Facebook)
+"src/request.cmx": for-pack(Facebook)
+"src/request_cohttp.cmx": for-pack(Facebook)
 "src/util.cmx": for-pack(Facebook)
-# Executable main
-"src/main.native": pkg_bolt
-"src/main.native": pkg_calendar
-"src/main.native": pkg_cohttp
-"src/main.native": pkg_cohttp.lwt
-"src/main.native": pkg_core
-"src/main.native": pkg_lwt
-"src/main.native": pkg_lwt.syntax
-"src/main.native": pkg_meta_conv
-"src/main.native": pkg_meta_conv.syntax
-"src/main.native": pkg_tiny_json
-"src/main.native": pkg_tiny_json_conv
-"src/main.native": pkg_uri
-<src/*.ml{,i}>: pkg_bolt
 <src/*.ml{,i}>: pkg_calendar
 <src/*.ml{,i}>: pkg_cohttp
 <src/*.ml{,i}>: pkg_cohttp.lwt
 <src/*.ml{,i}>: pkg_core
+<src/*.ml{,i}>: pkg_csv
 <src/*.ml{,i}>: pkg_lwt
 <src/*.ml{,i}>: pkg_lwt.syntax
 <src/*.ml{,i}>: pkg_meta_conv
 <src/*.ml{,i}>: pkg_meta_conv.syntax
-<src/*.ml{,i}>: pkg_tiny_json
 <src/*.ml{,i}>: pkg_tiny_json_conv
 <src/*.ml{,i}>: pkg_uri
+<src/*.ml{,i}>: use_types
+# Executable feed_example
+"examples/feed_example.native": pkg_calendar
+"examples/feed_example.native": pkg_cohttp
+"examples/feed_example.native": pkg_cohttp.lwt
+"examples/feed_example.native": pkg_core
+"examples/feed_example.native": pkg_csv
+"examples/feed_example.native": pkg_lwt
+"examples/feed_example.native": pkg_lwt.syntax
+"examples/feed_example.native": pkg_meta_conv
+"examples/feed_example.native": pkg_meta_conv.syntax
+"examples/feed_example.native": pkg_tiny_json_conv
+"examples/feed_example.native": pkg_uri
+"examples/feed_example.native": use_facebook
+"examples/feed_example.native": use_types
+<examples/*.ml{,i}>: pkg_calendar
+<examples/*.ml{,i}>: pkg_cohttp
+<examples/*.ml{,i}>: pkg_cohttp.lwt
+<examples/*.ml{,i}>: pkg_core
+<examples/*.ml{,i}>: pkg_csv
+<examples/*.ml{,i}>: pkg_lwt
+<examples/*.ml{,i}>: pkg_lwt.syntax
+<examples/*.ml{,i}>: pkg_meta_conv
+<examples/*.ml{,i}>: pkg_meta_conv.syntax
+<examples/*.ml{,i}>: pkg_tiny_json_conv
+<examples/*.ml{,i}>: pkg_uri
+<examples/*.ml{,i}>: use_facebook
+<examples/*.ml{,i}>: use_types
 # OASIS_STOP
-<src/*.ml{,i}>: syntax_camlp4o
-<src/*.ml{,i}>: logger
-<src/*.ml{,i}>: thread
-"src/main.native": thread
+<**/*.ml{,i}>: syntax_camlp4o
+<**/*.ml{,i}>: thread
+<**/*.native>: thread

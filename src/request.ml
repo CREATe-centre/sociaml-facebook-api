@@ -27,17 +27,17 @@ module type S = sig
   val do_request_by_uri :
     t
     -> Uri.t 
-    -> ?expect:int 
-    -> ?method': [ | `POST | `GET ] 
+    -> ?expect : int 
+    -> ?method' : [ | `POST | `GET ] 
     -> 'a decoder
     -> ('a, [> | Tiny_json.Json.t Error.t ]) response
   
   val do_request :
-    ?parameters:(string * string) list
+    ?parameters : (string * string) list
     -> t
     -> string 
-    -> ?expect:int 
-    -> ?method': [ | `POST | `GET ] 
+    -> ?expect : int 
+    -> ?method' : [ | `POST | `GET ] 
     -> 'a decoder
     -> ('a, [> | Tiny_json.Json.t Error.t ]) response
     

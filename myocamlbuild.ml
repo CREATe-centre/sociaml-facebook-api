@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: d9299031d4f01399356720b09a952c4f) *)
+(* DO NOT EDIT (digest: d53115f209f488dee37c55a94e655630) *)
 module OASISGettext = struct
 (* # 22 "src/oasis/OASISGettext.ml" *)
 
@@ -580,16 +580,17 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("facebook", ["src"], [])];
+     MyOCamlbuildBase.lib_ocaml =
+       [("types", ["src/types"], []); ("facebook", ["src"], [])];
      lib_c = [];
      flags = [];
-     includes = []
+     includes = [("src", ["src/types"]); ("examples", ["src"])]
   }
   ;;
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 593 "myocamlbuild.ml"
+# 594 "myocamlbuild.ml"
 (* OASIS_STOP *)
 let mydispatch = function
   | After_options -> Options.ocamldoc := S[ !Options.ocamldoc; A"-thread"; ]

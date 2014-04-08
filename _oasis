@@ -1,11 +1,12 @@
 OASISFormat: 0.4
 Name:        facebook-sdk
-Version:     0.2.12
+Version:     0.3.1
 Synopsis:    Facebook Graph API SDK for OCaml
 Description: 
-  OCaml bindings to the Facebook graph API using cohttp and lwt threads.  
+  OCaml bindings to the Facebook graph API using cohttp and lwt threading.  
   This package is still in the early stages of development and at present
-  only contains the functionality required to fetch a user's timeline.
+  only contains the functionality required to fetch a user's time-line and
+  to publish simple messages to the time-line.
 Authors:     Dominic Price
 Copyrights:  (C) 2014 Horizon Digital Economy Research
 LicenseFile: LICENSE
@@ -15,54 +16,61 @@ Plugins:     META (0.4), DevFiles (0.4)
 BuildTools:  ocamlbuild, ocamldoc, make, awk
 
 Library facebook
-  Path:        src
-  Findlibname: facebook
-  Modules:     Api, Api_cohttp, Auth, User, Util
-  Pack:        true
+  Path:           src
+  Findlibname:    facebook
+  Modules:        Api, Auth, Request, Request_cohttp, Util
+  Pack:           true
   BuildDepends:
-    bolt,
-    calendar,
     cohttp,
     cohttp.lwt,
     core,
+    facebook.types,
     lwt,
     lwt.syntax,
     meta_conv,
     meta_conv.syntax,
-    tiny_json,
     tiny_json_conv,
     uri
     
-Executable main
-  Path:      src
-  MainIs:    main.ml
+Library types
+  Path:           src/types
+  Findlibname:    types
+  FindlibParent:  facebook
+  Modules:        Common, User
+  Pack:           true
+  BuildDepends:
+    calendar,
+    csv,
+    meta_conv,
+    meta_conv.syntax,
+    tiny_json_conv,
+    uri
+    
+Executable feed_example
+  Path:           examples
+  Install:        false
+  MainIs:         feed_example.ml
   CompiledObject: native
   BuildDepends:
-    bolt,
-    calendar,
-    cohttp,
-    cohttp.lwt,
     core,
-    lwt,
-    lwt.syntax,
-    meta_conv,
-    meta_conv.syntax,
-    tiny_json,
-    tiny_json_conv,
-    uri
+    facebook
+    
     
 Document facebook
-  Type:       ocamlbuild (0.1.0)
-  Title:      Facebook-SDK API Reference
-  Authors:    Dominic Price
-  Format:     HTML
-  Index:      index.html
-  InstallDir: $htmldir/facebook-sdk
-  XOCamlbuildPath: src
-  XOCamlbuildLibraries: facebook
+  Type:           ocamlbuild (0.1.0)
+  Title:          Facebook-SDK API Reference
+  Authors:        Dominic Price
+  Format:         HTML
+  Index:          index.html
+  InstallDir:     $htmldir/facebook-sdk
+  XOCamlbuildPath: 
+    src
+  XOCamlbuildLibraries: 
+    facebook,
+    facebook.types
 
 SourceRepository head
-  Type:      git
-  Location:  https://github.com/dominicjprice/facebook-sdk.git
-  Browser:   https://github.com/dominicjprice/facebook-sdk
-  Branch:    master    
+  Type:           git
+  Location:       https://github.com/dominicjprice/facebook-sdk.git
+  Browser:        https://github.com/dominicjprice/facebook-sdk
+  Branch:         master    

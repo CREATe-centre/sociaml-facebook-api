@@ -1,3 +1,9 @@
+0.3.1 / 2014-04-08
+==================
+
+  * Breaking API changes.
+  * Using Meta Conv for JSON decoding now.
+
 0.2.12 / 2014-03-10
 ==================
 

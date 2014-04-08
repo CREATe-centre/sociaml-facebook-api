@@ -15,11 +15,13 @@ build: [
 remove: [
   [make "uninstall"]
   ["ocamlfind" "remove" "${library(facebook).findlibname}"]
+  ["ocamlfind" "remove" "${library(types).findlibname}"]
 ]
 depends: [
-  "bolt"
   "calendar"
   "cohttp" { >= "0.10.0" }
+  "core"
+  "csv"
   "lwt"
   "meta_conv"
   "oasis"

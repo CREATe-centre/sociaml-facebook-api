@@ -1,8 +1,8 @@
 # OASIS_START
-# DO NOT EDIT (digest: 3b7587fece5867cd412b801bf308fbd2)
+# DO NOT EDIT (digest: 425f9e0a5c033e459c8dcbb57f2fdddc)
 Api
-Api_cohttp
 Auth
-User
+Request
+Request_cohttp
 Util
 # OASIS_STOP
