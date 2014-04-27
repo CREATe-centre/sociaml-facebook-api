@@ -1,23 +1,23 @@
 # OASIS_START
-# DO NOT EDIT (digest: a4172cbcffb594c9661339dbabec102e)
+# DO NOT EDIT (digest: c317a6e31563e9f858d40907054f9318)
 version = "0.3.1"
 description = "Facebook Graph API SDK for OCaml"
 requires =
-"cohttp cohttp.lwt core facebook.types lwt lwt.syntax meta_conv meta_conv.syntax tiny_json_conv uri"
+"cohttp cohttp.lwt core facebook.endpoints lwt lwt.syntax meta_conv meta_conv.syntax tiny_json_conv uri"
 archive(byte) = "facebook.cma"
 archive(byte, plugin) = "facebook.cma"
 archive(native) = "facebook.cmxa"
 archive(native, plugin) = "facebook.cmxs"
 exists_if = "facebook.cma"
-package "types" (
+package "endpoints" (
  version = "0.3.1"
  description = "Facebook Graph API SDK for OCaml"
  requires = "calendar csv meta_conv meta_conv.syntax tiny_json_conv uri"
- archive(byte) = "types.cma"
- archive(byte, plugin) = "types.cma"
- archive(native) = "types.cmxa"
- archive(native, plugin) = "types.cmxs"
- exists_if = "types.cma"
+ archive(byte) = "endpoints.cma"
+ archive(byte, plugin) = "endpoints.cma"
+ archive(native) = "endpoints.cmxa"
+ archive(native, plugin) = "endpoints.cmxs"
+ exists_if = "endpoints.cma"
 )
 # OASIS_STOP
 

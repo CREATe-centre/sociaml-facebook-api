@@ -5,9 +5,9 @@ module API = Api.S(Request_cohttp.S)
 module R = Core.Result
 
 let () = 
-  let open Types.User.Home.ReadResponse in
-  let open Types.User.Home.Post in
-  let open Types.User.Home.Profile in
+  let open Endpoints.User.Home.ReadResponse in
+  let open Endpoints.User.Home.Post in
+  let open Endpoints.User.Home.Profile in
   let request = token |> Auth.Token.of_string |> Request_cohttp.S.create in
   let rec format_response = function
     | R.Error (`Conversion_error e) ->

@@ -1,12 +1,23 @@
 type 'a decoder = ('a, Tiny_json.Json.t) Meta_conv.Types.Decoder.t
 
-type calendar = CalendarLib.Calendar.t
+type calendar_iso8601 = CalendarLib.Calendar.t
 
-val calendar_of_json : calendar decoder
+val calendar_iso8601_of_json : calendar_iso8601 decoder
+
+type calendar_us_date = CalendarLib.Calendar.t
+
+val calendar_us_date_of_json : calendar_us_date decoder
   
 type uri = Uri.t
 
 val uri_of_json : uri decoder
+
+module NumberRange : sig
+  type t = {
+    min            : int;
+    max            : int;
+  }
+end
 
 
 module type PagedResponse = sig

@@ -3,14 +3,14 @@ module S (Req : Request.S) = struct
   module R = Core.Result
     
     open Lwt
-    open Types.Common
-    open Types.User
+    open Endpoints.Common
+    open Endpoints.User
       
     type ('a, 'b) paged = {
-                             response : 'a;
-                           next : (unit -> (('a, 'b) paged, 'b) Request.response) option;
-                           previous : (unit -> (('a, 'b) paged, 'b) Request.response) option;
-                          }
+     response : 'a;
+     next : (unit -> (('a, 'b) paged, 'b) Request.response) option;
+     previous : (unit -> (('a, 'b) paged, 'b) Request.response) option;
+    }
       
       
     module Paged (PR : PagedResponse) = struct
@@ -43,6 +43,11 @@ module S (Req : Request.S) = struct
     
     module User = struct
       
+      let read ?user_id:(user_id="me") req =
+        let path = Printf.sprintf "/%s" user_id in 
+        Req.do_request req path Endpoints.User.t_of_json
+      
+      
       module Home = struct
         
         let read ?user_id:(user_id="me") ?since ?until ?limit req =
@@ -67,6 +72,20 @@ module S (Req : Request.S) = struct
           let path = Printf.sprintf "/%s/feed" user_id in
           Req.do_request ~parameters:[("message", data.Feed.PublishRequest.message)] req path 
             ~method':`POST Feed.PublishResponse.t_of_json
+            
+      end
+      
+      
+      module Friends = struct
+      
+        let read ?user_id:(user_id="me") ?limit req =
+          let params = match limit with 
+          | Some v -> [("limit", string_of_int v)]
+          | None -> [] in
+          let path = Printf.sprintf "/%s/friends" user_id in
+          let module P = Paged(Friends.ReadResponse) in 
+          Req.do_request ~parameters:params req path Friends.ReadResponse.t_of_json >>= 
+            (P.parse_paged_response req Friends.ReadResponse.t_of_json)
             
       end
       

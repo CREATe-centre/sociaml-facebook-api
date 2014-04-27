@@ -1,3 +1,24 @@
+type t = {
+  id                 : string;
+  bio                : string option;
+  birthday           : Common.calendar_us_date option;
+  email              : string option;
+  first_name         : string option;
+  gender             : string option;
+  is_verified        : bool option;
+  last_name          : string option;
+  link               : Common.uri option;
+  locale             : string option;
+  name               : string;
+  name_format        : string option;
+  third_party_id     : string option;
+  username           : string option;
+  verified           : bool option;
+  website            : Common.uri option;
+}
+
+val t_of_json     : t Common.decoder
+
 module Home : sig
 	
 	val read_permissions : string list
@@ -69,7 +90,7 @@ module Home : sig
 			from           : Profile.t;
 			message        : string;
 			can_remove     : bool;
-			created_time   : Common.calendar;
+			created_time   : Common.calendar_iso8601;
 			like_count     : int;
 			message_tags   : MessageTag.t list option;
 			user_likes     : bool;
@@ -187,7 +208,7 @@ module Home : sig
 	    application    : Application.t option;
 	    caption        : string option;
 	    comments       : Comments.t option;
-	    created_time   : Common.calendar;
+	    created_time   : Common.calendar_iso8601;
 	    description    : string option;
 	    from           : Profile.t;
         height         : int option;
@@ -211,7 +232,7 @@ module Home : sig
 	    story_tags     : MessageTagMap.t option;
 	    to'            : To.t option;
 	    type'          : Type.t;
-	    updated_time   : Common.calendar;
+	    updated_time   : Common.calendar_iso8601;
         width          : int option;
 	    with_tags      : To.t option;
 	  }
@@ -247,4 +268,14 @@ module Feed : sig
 		
 	end
 	
+end
+
+
+module Friends : sig
+  
+  val read_permissions : string list
+  
+  
+  module ReadResponse : Common.PagedResponse with type data = t
+  
 end

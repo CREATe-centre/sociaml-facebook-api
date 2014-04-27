@@ -8,8 +8,13 @@ module S (Req : Request.S) : sig
 	
 	
 	module User : sig
-		
-        module Home : sig
+    
+    val read : 
+      ?user_id : string
+      -> Req.t
+      -> (Endpoints.User.t, [> | Tiny_json.Json.t Request.Error.t ]) Request.response
+    
+    module Home : sig
 			
 			val read : 
         ?user_id : string  
@@ -17,7 +22,7 @@ module S (Req : Request.S) : sig
         -> ?until : int
         -> ?limit : int
         -> Req.t
-        -> ((Types.User.Home.ReadResponse.t, 
+        -> ((Endpoints.User.Home.ReadResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
 		
 		end
@@ -27,12 +32,24 @@ module S (Req : Request.S) : sig
 			
 			val publish :
 				?user_id : string
-				-> Types.User.Feed.PublishRequest.t
+				-> Endpoints.User.Feed.PublishRequest.t
 				-> Req.t
-				-> (Types.User.Feed.PublishResponse.t, 
+				-> (Endpoints.User.Feed.PublishResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ]) Request.response
 			
 		end
+    
+    
+    module Friends : sig
+      
+      val read : 
+        ?user_id : string  
+        -> ?limit : int
+        -> Req.t
+        -> ((Endpoints.User.Friends.ReadResponse.t, 
+          [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
+          
+    end
 		
 	end
   

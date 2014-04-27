@@ -2,6 +2,25 @@ open Meta_conv.Open
 open Json_conv
 open Tiny_json
 
+type t (: Ignore_unknown_fields :) = {
+  id : string;
+  bio : string mc_option;
+  birthday : Common.calendar_us_date mc_option;
+  email : string mc_option;
+  first_name : string mc_option;
+  gender : string mc_option;
+  is_verified : bool mc_option;
+  last_name : string mc_option;
+  link : Common.uri mc_option;
+  locale : string mc_option;
+  name : string;
+  name_format : string mc_option;
+  third_party_id : string mc_option;
+  username : string mc_option;
+  verified : bool mc_option;
+  website : Common.uri mc_option;
+} with conv(of_json)
+
 
 module Home = struct
 	
@@ -96,7 +115,7 @@ module Home = struct
 			from : Profile.t;
 			message : string;
 			can_remove : bool;
-			created_time : Common.calendar;
+			created_time : Common.calendar_iso8601;
 			like_count : int;
 			message_tags : MessageTag.t list mc_option;
 			user_likes : bool;
@@ -300,7 +319,7 @@ module Home = struct
 			application : Application.t mc_option;
 			caption : string mc_option;
 			comments : Comments.t mc_option;
-      created_time : Common.calendar;
+      created_time : Common.calendar_iso8601;
 			description : string mc_option;
       from : Profile.t;
 			height : int mc_option;
@@ -324,7 +343,7 @@ module Home = struct
 			story_tags : MessageTagMap.t mc_option;
 			to' as "to" : To.t mc_option;
 			type' as "type" : Type.t;
-      updated_time : Common.calendar;
+      updated_time : Common.calendar_iso8601;
 			width : int mc_option;
 			with_tags : To.t mc_option;
     } with conv(of_json)
@@ -378,4 +397,36 @@ module Feed = struct
 		} with conv(of_json)
 	end
 	
+end
+
+
+module Friends = struct
+  
+  let read_permissions = [ "user_friends" ]
+  
+  
+  module ReadResponse
+      : Common.PagedResponse with type data = t 
+      = struct
+    
+    type data = t with conv(of_json)
+    
+    type cursors = {
+      after : string;
+      before : string;
+    } with conv(of_json)
+      
+    type page_navigation = {
+      next : Common.uri mc_option;
+      previous : Common.uri mc_option;
+      cursors : cursors mc_option;
+    } with conv(of_json)
+    
+    type t = { 
+      data : data list; 
+      paging : page_navigation mc_option;
+    } with conv(of_json)
+    
+  end
+  
 end

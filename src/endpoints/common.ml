@@ -3,6 +3,8 @@ open Json_conv
 open Tiny_json
 
 let cal_format_iso8601 = "%Y-%m-%dT%H:%M:%S%z" 
+
+let cal_format_us_date = "%m/%d/%Y"
  
 let x_of_json converter ?trace j =
   let err type' = 
@@ -20,14 +22,27 @@ let x_of_json converter ?trace j =
 
 type 'a decoder = ('a, Tiny_json.Json.t) Meta_conv.Types.Decoder.t
 
-type calendar = CalendarLib.Calendar.t
+type calendar_iso8601 = CalendarLib.Calendar.t
 
-let calendar_of_json = 
+let calendar_iso8601_of_json = 
   x_of_json (CalendarLib.Printer.Calendar.from_fstring cal_format_iso8601)
+  
+type calendar_us_date = CalendarLib.Calendar.t
+
+let calendar_us_date_of_json = 
+  x_of_json (CalendarLib.Printer.Calendar.from_fstring cal_format_us_date)
 
 type uri = Uri.t
 
 let uri_of_json = x_of_json Uri.of_string
+
+
+module NumberRange = struct
+  type t = {
+    min            : int;
+    max            : int;
+  } with conv(of_json)
+end
 
 
 module type PagedResponse = sig

@@ -12,17 +12,10 @@ module Token : sig
 end
 
 
-module Permission : sig
-  type t =
-    | Read_stream 
-    | Publish_actions
-end
-
-
 val authorize_uri :
     ?redirect_uri:Uri.t 
     -> ?state:string 
-    -> ?permissions:Permission.t list
+    -> ?permissions:string list
     -> Client_ID.t 
     -> Uri.t
     

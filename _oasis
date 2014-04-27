@@ -24,7 +24,7 @@ Library facebook
     cohttp,
     cohttp.lwt,
     core,
-    facebook.types,
+    facebook.endpoints,
     lwt,
     lwt.syntax,
     meta_conv,
@@ -32,9 +32,9 @@ Library facebook
     tiny_json_conv,
     uri
     
-Library types
-  Path:           src/types
-  Findlibname:    types
+Library endpoints
+  Path:           src/endpoints
+  Findlibname:    endpoints
   FindlibParent:  facebook
   Modules:        Common, User
   Pack:           true
@@ -55,6 +55,15 @@ Executable feed_example
     core,
     facebook
     
+Executable friend_list_example
+  Path:           examples
+  Install:        false
+  MainIs:         friend_list_example.ml
+  CompiledObject: native
+  BuildDepends:
+    core,
+    facebook
+    
     
 Document facebook
   Type:           ocamlbuild (0.1.0)
@@ -67,7 +76,7 @@ Document facebook
     src
   XOCamlbuildLibraries: 
     facebook,
-    facebook.types
+    facebook.endpoints
 
 SourceRepository head
   Type:           git

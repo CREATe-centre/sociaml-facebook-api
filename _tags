@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: aef7842f2d893dac86c6a59dc601e704)
+# DO NOT EDIT (digest: 495d3dd48aba4f415ecc452d11454f69)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -13,16 +13,16 @@
 ".git": not_hygienic
 "_darcs": -traverse
 "_darcs": not_hygienic
-# Library types
-"src/types/types.cmxs": use_types
-"src/types/common.cmx": for-pack(Types)
-"src/types/user.cmx": for-pack(Types)
-<src/types/*.ml{,i}>: pkg_calendar
-<src/types/*.ml{,i}>: pkg_csv
-<src/types/*.ml{,i}>: pkg_meta_conv
-<src/types/*.ml{,i}>: pkg_meta_conv.syntax
-<src/types/*.ml{,i}>: pkg_tiny_json_conv
-<src/types/*.ml{,i}>: pkg_uri
+# Library endpoints
+"src/endpoints/endpoints.cmxs": use_endpoints
+"src/endpoints/common.cmx": for-pack(Endpoints)
+"src/endpoints/user.cmx": for-pack(Endpoints)
+<src/endpoints/*.ml{,i}>: pkg_calendar
+<src/endpoints/*.ml{,i}>: pkg_csv
+<src/endpoints/*.ml{,i}>: pkg_meta_conv
+<src/endpoints/*.ml{,i}>: pkg_meta_conv.syntax
+<src/endpoints/*.ml{,i}>: pkg_tiny_json_conv
+<src/endpoints/*.ml{,i}>: pkg_uri
 # Library facebook
 "src/facebook.cmxs": use_facebook
 "src/api.cmx": for-pack(Facebook)
@@ -41,7 +41,7 @@
 <src/*.ml{,i}>: pkg_meta_conv.syntax
 <src/*.ml{,i}>: pkg_tiny_json_conv
 <src/*.ml{,i}>: pkg_uri
-<src/*.ml{,i}>: use_types
+<src/*.ml{,i}>: use_endpoints
 # Executable feed_example
 "examples/feed_example.native": pkg_calendar
 "examples/feed_example.native": pkg_cohttp
@@ -54,8 +54,22 @@
 "examples/feed_example.native": pkg_meta_conv.syntax
 "examples/feed_example.native": pkg_tiny_json_conv
 "examples/feed_example.native": pkg_uri
+"examples/feed_example.native": use_endpoints
 "examples/feed_example.native": use_facebook
-"examples/feed_example.native": use_types
+# Executable friend_list_example
+"examples/friend_list_example.native": pkg_calendar
+"examples/friend_list_example.native": pkg_cohttp
+"examples/friend_list_example.native": pkg_cohttp.lwt
+"examples/friend_list_example.native": pkg_core
+"examples/friend_list_example.native": pkg_csv
+"examples/friend_list_example.native": pkg_lwt
+"examples/friend_list_example.native": pkg_lwt.syntax
+"examples/friend_list_example.native": pkg_meta_conv
+"examples/friend_list_example.native": pkg_meta_conv.syntax
+"examples/friend_list_example.native": pkg_tiny_json_conv
+"examples/friend_list_example.native": pkg_uri
+"examples/friend_list_example.native": use_endpoints
+"examples/friend_list_example.native": use_facebook
 <examples/*.ml{,i}>: pkg_calendar
 <examples/*.ml{,i}>: pkg_cohttp
 <examples/*.ml{,i}>: pkg_cohttp.lwt
@@ -67,8 +81,8 @@
 <examples/*.ml{,i}>: pkg_meta_conv.syntax
 <examples/*.ml{,i}>: pkg_tiny_json_conv
 <examples/*.ml{,i}>: pkg_uri
+<examples/*.ml{,i}>: use_endpoints
 <examples/*.ml{,i}>: use_facebook
-<examples/*.ml{,i}>: use_types
 # OASIS_STOP
 <**/*.ml{,i}>: syntax_camlp4o
 <**/*.ml{,i}>: thread
