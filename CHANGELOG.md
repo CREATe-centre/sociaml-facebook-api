@@ -1,3 +1,7 @@
+0.3.3 / 2014-04-27
+
+  * Cleared up typo in previous release.
+
 0.3.2 / 2014-04-27
 
   * Added friend endpoint.
