@@ -1,3 +1,7 @@
+0.3.4 / 2014-04-28
+
+  * Added function to generate access token exchange uri.
+
 0.3.3 / 2014-04-27
 
   * Cleared up typo in previous release.

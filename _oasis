@@ -1,6 +1,6 @@
 OASISFormat: 0.4
 Name:        facebook-sdk
-Version:     0.3.3
+Version:     0.3.4
 Synopsis:    Facebook Graph API SDK for OCaml
 Description: 
   OCaml bindings to the Facebook graph API using cohttp and lwt threading.  
