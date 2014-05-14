@@ -37,7 +37,7 @@ let authorize_uri
   |> Uri.add_query_param' & ("response_type", response_type)) 
   |> Uri.add_query_param' & ("redirect_uri", Uri.to_string redirect_uri))
   |> Uri.add_query_param' & ("state", match state with | Some s -> s | None -> ""))
-  |> Uri.add_query_param' & ("permissions", match permissions with
+  |> Uri.add_query_param' & ("scope", match permissions with
     | Some ps -> ps |> Util.List.implode ~sep:","
     | None -> "")
 
