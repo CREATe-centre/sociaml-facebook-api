@@ -1,3 +1,7 @@
+0.3.5 / 2014-05-14
+
+  * Facebook changed the url parameter when requesting permissions.
+
 0.3.4 / 2014-04-28
 
   * Added function to generate access token exchange uri.
