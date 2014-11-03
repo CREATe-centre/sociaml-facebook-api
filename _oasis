@@ -21,7 +21,7 @@ Library facebook
   Modules:        Api, Auth, Request, Request_cohttp, Util
   Pack:           true
   BuildDepends:
-    cohttp,
+    cohttp (>= 0.12.0),
     cohttp.lwt,
     core,
     facebook.endpoints,
