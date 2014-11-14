@@ -14,8 +14,8 @@ build: [
 ]
 remove: [
   [make "uninstall"]
-  ["ocamlfind" "remove" "${library(facebook).findlibname}"]
-  ["ocamlfind" "remove" "${library(endpoints).findlibname}"]
+  ["ocamlfind" "remove" "${library(sociaml_facebook_api).findlibname}"]
+  ["ocamlfind" "remove" "${library(sociaml_facebook_api_endpoints).findlibname}"]
 ]
 depends: [
   "calendar"
