@@ -43,15 +43,6 @@ Library sociaml_facebook_api_endpoints
     tiny_json_conv,
     uri
     
-#Executable feed_example
-#  Path:           examples
-#  Install:        false
-#  MainIs:         feed_example.ml
-#  CompiledObject: native
-#  BuildDepends:
-#    core_kernel,
-#    facebook
-    
 Executable friend_list_example
   Path:           examples
   Install:        false
