@@ -29,6 +29,15 @@ module S (Req : Request.S) : sig
 		
 		
 		module Feed : sig
+      
+      val read :
+        ?user_id : string
+        -> ?since : int
+        -> ?until : int
+        -> ?limit : int
+        -> Req.t
+        -> ((Endpoints.User.Feed.ReadResponse.t, 
+          [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
 			
 			val publish :
 				?user_id : string
@@ -38,6 +47,20 @@ module S (Req : Request.S) : sig
           [> | Tiny_json.Json.t Request.Error.t ]) Request.response
 			
 		end
+    
+    
+    module Posts : sig
+      
+      val read :
+        ?user_id : string
+        -> ?since : int
+        -> ?until : int
+        -> ?limit : int
+        -> Req.t
+        -> ((Endpoints.User.Posts.ReadResponse.t, 
+          [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
+            
+    end
     
     
     module Friends : sig

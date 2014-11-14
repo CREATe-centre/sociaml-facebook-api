@@ -68,10 +68,41 @@ module S (Req : Request.S) = struct
       
       module Feed = struct
         
+        let read ?user_id:(user_id="me") ?since ?until ?limit req =
+          let params = [ (since, "since"); (until, "until"); (limit, "limit"); ]
+            |> List.fold_left (fun acc (arg, name) ->
+              List.append 
+                (match arg with
+                  | Some v -> [(name, string_of_int v)]
+                  | None -> []) acc) [] 
+          in
+          let module P = Paged(Feed.ReadResponse) in 
+          let path = Printf.sprintf "/%s/feed" user_id in
+          Req.do_request ~parameters:params req path Feed.ReadResponse.t_of_json >>= 
+            (P.parse_paged_response req Feed.ReadResponse.t_of_json)
+        
         let publish ?user_id:(user_id="me") data req =
           let path = Printf.sprintf "/%s/feed" user_id in
           Req.do_request ~parameters:[("message", data.Feed.PublishRequest.message)] req path 
             ~method':`POST Feed.PublishResponse.t_of_json
+            
+      end
+      
+      
+      module Posts = struct
+        
+        let read ?user_id:(user_id="me") ?since ?until ?limit req =
+          let params = [ (since, "since"); (until, "until"); (limit, "limit"); ]
+            |> List.fold_left (fun acc (arg, name) ->
+              List.append 
+                (match arg with
+                  | Some v -> [(name, string_of_int v)]
+                  | None -> []) acc) [] 
+          in
+          let module P = Paged(Posts.ReadResponse) in 
+          let path = Printf.sprintf "/%s/posts" user_id in
+          Req.do_request ~parameters:params req path Posts.ReadResponse.t_of_json >>= 
+            (P.parse_paged_response req Posts.ReadResponse.t_of_json)
             
       end
       

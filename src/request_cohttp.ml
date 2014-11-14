@@ -4,7 +4,9 @@ module S = struct
   open Lwt
   open Tiny_json
   
-  let endpoint = "https://graph.facebook.com"
+  let graph_api_version = "1.0"
+  
+  let endpoint = Printf.sprintf "https://graph.facebook.com/v%s" graph_api_version
   
   type t = {
     uri : Uri.t

@@ -19,7 +19,7 @@ type t (: Ignore_unknown_fields :) = {
   username : string mc_option;
   verified : bool mc_option;
   website : Common.uri mc_option;
-} with conv(of_json)
+} with conv(json)
 
 
 module Home = struct
@@ -31,7 +31,7 @@ module Home = struct
 		type t = {
 			name : string;
 			link : Common.uri;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
@@ -40,7 +40,7 @@ module Home = struct
 			id : string;
 			name : string;
 			namespace : string mc_option;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
@@ -48,7 +48,7 @@ module Home = struct
 		type t = {
 			id						 : string;
 			name					 : string;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
@@ -58,7 +58,7 @@ module Home = struct
       name : string;
       category : string mc_option;
 			category_list : Category.t list mc_option;
-    } with conv(of_json)
+    } with conv(json)
   end
 	
 	
@@ -68,7 +68,7 @@ module Home = struct
 			| User as "user"
 			| Group as "group"
       | Application as "application"
-		with conv(of_json)
+		with conv(json)
 	end
 	
 	
@@ -79,7 +79,7 @@ module Home = struct
 			type' as "type" : MessageTagType.t mc_option;
 			offset : int;
 			length : int;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
@@ -105,6 +105,9 @@ module Home = struct
 						match v' with 
 						| `Ok v'' -> `Ok (k', v'')
 						| `Error e -> `Error e) o
+
+    let json_of_t t = 
+      Json.Object(t |> List.map (fun (k,v) -> string_of_int k, MessageTag.json_of_t v))
 		
 	end
 	
@@ -119,7 +122,7 @@ module Home = struct
 			like_count : int;
 			message_tags : MessageTag.t list mc_option;
 			user_likes : bool;
-		} with conv(of_json)
+		} with conv(json)
 	end
 		
 		
@@ -127,23 +130,23 @@ module Home = struct
 		: Common.PagedResponse with type data = Comment.t
 		= struct
 			
-	  type data = Comment.t with conv(of_json)
+	  type data = Comment.t with conv(json)
 		
 		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(of_json)
+  	} with conv(json)
       
     type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
     type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(of_json)
+    } with conv(json)
 			
 	end
 	
@@ -153,14 +156,14 @@ module Home = struct
 			name : string mc_option;
 			text : string;
 			href : Common.uri mc_option;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
 	module Shares = struct
 		type t = {
 			count : int;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
@@ -178,7 +181,7 @@ module Home = struct
 			| Published_story as "published_story"
 			| Tagged_in_photo as "tagged_in_photo"
 			| Approved_friend as "approved_friend"
-			with conv(of_json)
+			with conv(json)
 	end
 	
 	
@@ -186,23 +189,23 @@ module Home = struct
 		: Common.PagedResponse with type data = Profile.t
 		= struct
 			
-		type data = Profile.t with conv(of_json)
+		type data = Profile.t with conv(json)
 		
 		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(of_json)
+  	} with conv(json)
       
     type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
     type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(of_json)
+    } with conv(json)
 			
 	end
 	
@@ -211,23 +214,23 @@ module Home = struct
 		: Common.PagedResponse with type data = Profile.t
 		= struct
 			
-		type data = Profile.t with conv(of_json)
+		type data = Profile.t with conv(json)
 		
 		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(of_json)
+  	} with conv(json)
       
     type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
     type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(of_json)
+    } with conv(json)
 			
 	end
   
@@ -239,28 +242,11 @@ module Home = struct
 			| Photo as "photo"
 			| Video as "video" 
 			| Swf as "swf"
-			with conv(of_json)
+			with conv(json)
 	end
 	
 	
 	module Privacy = struct
-		
-		type csv = Csv.t
-		
-		let csv_of_json ?trace:(trace=[]) j =
-  		let err type' = 
-    		let msg = Printf.sprintf "Expected string, found %s" type' in
-    		`Error (Meta_conv.Error.Primitive_decoding_failure msg, j, trace)
-			in
-			match j with 
-			  | Json.Number _ -> err "number"
-			  | Json.Array _ -> err "array"
-			  | Json.Bool _ -> err "bool"
-			  | Json.Null -> err "null"
-			  | Json.Object o -> err "object"
-				| Json.String s -> 
-					`Ok (s |> Csv.of_string |> Csv.input_all)
-					
 		
 		type group = 
 			| Everyone as "EVERYONE"
@@ -269,23 +255,23 @@ module Home = struct
 			| Self as "SELF"
 			| Custom as "CUSTOM"
 			| Unknown as ""
-			with conv(of_json)
+			with conv(json)
 
 		type friend_group =
 			| All_friends as "ALL_FRIENDS"
 			| Friends_of_friends as "FRIENDS_OF_FRIENDS"
 			| Some_friends as "SOME_FRIENDS"
 			| Unknown as ""
-			with conv(of_json)
+			with conv(json)
 		
 		type t = {
 			description : string mc_option;
 			value : group;
 			friends : friend_group mc_option;
 			networks : string mc_option;
-			allow : csv mc_option;
-			deny : csv mc_option;
-		} with conv(of_json)
+			allow : Common.csv mc_option;
+			deny : Common.csv mc_option;
+		} with conv(json)
 		
 	end
 	
@@ -300,7 +286,7 @@ module Home = struct
 			street : string mc_option;
 			located_in : string mc_option;
 			latitude : float;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
 	
@@ -309,7 +295,7 @@ module Home = struct
 			id : string;
 			name : string;
 			location : Location.t mc_option;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
   
@@ -346,7 +332,7 @@ module Home = struct
       updated_time : Common.calendar_iso8601;
 			width : int mc_option;
 			with_tags : To.t mc_option;
-    } with conv(of_json)
+    } with conv(json)
   end
   
   
@@ -354,23 +340,23 @@ module Home = struct
     : Common.PagedResponse with type data = Post.t 
     = struct
     
-    type data = Post.t with conv(of_json)
+    type data = Post.t with conv(json)
 		
 		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(of_json)
+  	} with conv(json)
       
     type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
     type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
   end
 
@@ -382,6 +368,31 @@ module Feed = struct
 	let read_permissions = [ "read_stream"; ]
 	
 	let publish_permissions = [ "publish_actions"; ]
+  
+  
+  module ReadResponse
+    : Common.PagedResponse with type data = Home.Post.t 
+    = struct
+    
+    type data = Home.Post.t with conv(json)
+        
+    type cursors = {
+      after : string;
+      before : string;
+    } with conv(json)
+      
+    type page_navigation = {
+      next : Common.uri mc_option;
+      previous : Common.uri mc_option;
+            cursors : cursors mc_option;
+    } with conv(json)
+    
+    type t = { 
+      data : data list; 
+      paging : page_navigation mc_option;
+    } with conv(json)
+    
+  end
 	
 	
 	module PublishRequest = struct
@@ -394,9 +405,41 @@ module Feed = struct
 	module PublishResponse = struct
 		type t = {
 			id	: string;
-		} with conv(of_json)
+		} with conv(json)
 	end
 	
+end
+
+
+module Posts = struct
+    
+  let read_permissions = [ "read_stream"; ]
+  
+  
+  module ReadResponse
+    : Common.PagedResponse with type data = Home.Post.t 
+    = struct
+    
+    type data = Home.Post.t with conv(json)
+        
+    type cursors = {
+      after : string;
+      before : string;
+    } with conv(json)
+      
+    type page_navigation = {
+      next : Common.uri mc_option;
+      previous : Common.uri mc_option;
+            cursors : cursors mc_option;
+    } with conv(json)
+    
+    type t = { 
+      data : data list; 
+      paging : page_navigation mc_option;
+    } with conv(json)
+    
+  end
+    
 end
 
 
@@ -409,23 +452,23 @@ module Friends = struct
       : Common.PagedResponse with type data = t 
       = struct
     
-    type data = t with conv(of_json)
+    type data = t with conv(json)
     
     type cursors = {
       after : string;
       before : string;
-    } with conv(of_json)
+    } with conv(json)
       
     type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
       cursors : cursors mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
     type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(of_json)
+    } with conv(json)
     
   end
   

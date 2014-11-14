@@ -22,20 +22,45 @@ let x_of_json converter ?trace j =
 
 type 'a decoder = ('a, Tiny_json.Json.t) Meta_conv.Types.Decoder.t
 
+type 'a encoder = ('a, Tiny_json.Json.t) Meta_conv.Types.Encoder.t
+
 type calendar_iso8601 = CalendarLib.Calendar.t
 
 let calendar_iso8601_of_json = 
   x_of_json (CalendarLib.Printer.Calendar.from_fstring cal_format_iso8601)
   
+let json_of_calendar_iso8601 c = 
+  Json.String(CalendarLib.Printer.Calendar.sprint cal_format_iso8601 c)
+  
 type calendar_us_date = CalendarLib.Calendar.t
 
 let calendar_us_date_of_json = 
   x_of_json (CalendarLib.Printer.Calendar.from_fstring cal_format_us_date)
+  
+let json_of_calendar_us_date c = 
+  Json.String(CalendarLib.Printer.Calendar.sprint cal_format_us_date c)
 
 type uri = Uri.t
 
 let uri_of_json = x_of_json Uri.of_string
 
+let json_of_uri s = Json.String(Uri.to_string s)
+
+type csv = Csv.t
+
+let csv_of_json = x_of_json (fun s -> s |> Csv.of_string |> Csv.input_all)
+    
+let json_of_csv csv = 
+  let buf = Buffer.create 0 in
+  let chan = 
+    object
+        method output s ofs len = 
+          Buffer.add_substring buf s ofs len; len
+        method close_out () = ()
+    end |> Csv.to_out_obj in
+  Csv.output_all chan csv;
+  Json.String(Buffer.contents buf)
+        
 
 module NumberRange = struct
   type t = {
@@ -66,5 +91,7 @@ module type PagedResponse = sig
   }
   
   val t_of_json : t decoder
+  
+  val json_of_t : t encoder
   
 end

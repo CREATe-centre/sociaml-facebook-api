@@ -152,8 +152,6 @@ module Home : sig
 	
 	module Privacy : sig
 		
-		type csv = Csv.t
-		
 		type group = 
 			| Everyone
 			| All_friends
@@ -173,8 +171,8 @@ module Home : sig
 			value          : group;
 			friends        : friend_group option;
 			networks			 : string option;
-			allow          : csv option;
-			deny           : csv option;
+			allow          : Common.csv option;
+			deny           : Common.csv option;
 		}
 	end
 	
@@ -203,7 +201,8 @@ module Home : sig
 	
 	
 	module Post : sig
-	  type t = {
+	  
+    type t = {
 	    actions        : Action.t list option;
 	    application    : Application.t option;
 	    caption        : string option;
@@ -236,6 +235,9 @@ module Home : sig
         width          : int option;
 	    with_tags      : To.t option;
 	  }
+    
+    val json_of_t : t Common.encoder
+    
 	end
 
 
@@ -249,6 +251,9 @@ module Feed : sig
 	val read_permissions : string list
 	
 	val publish_permissions : string list
+  
+  
+  module ReadResponse : Common.PagedResponse with type data = Home.Post.t
 	
 	
 	module PublishRequest : sig
@@ -268,6 +273,16 @@ module Feed : sig
 		
 	end
 	
+end
+
+
+module Posts : sig
+    
+    val read_permissions : string list
+  
+  
+  module ReadResponse : Common.PagedResponse with type data = Home.Post.t
+    
 end
 
 
