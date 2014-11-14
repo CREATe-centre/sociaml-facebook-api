@@ -13,8 +13,8 @@ module S = struct
   }
     
   let create access_token = { 
-    uri = Uri.add_query_param' (Uri.of_string endpoint) 
-      ("access_token", Auth.Token.to_string access_token);
+      uri = Uri.add_query_param' (Uri.of_string endpoint) 
+        ("access_token", Auth.Token.to_string access_token);
     }
      
   let parse_response converter data =
@@ -25,7 +25,7 @@ module S = struct
         match converter ?trace:None parsed with
         | `Ok v -> Ok v
         | `Error e -> Error (`Conversion_error e)
-        | _ -> Error (`Exception (Pervasives.exit 1)) 
+        | _ -> Error (`Generic_error ("Parser returned an unknown response")) 
     with e -> Error (`Exception e)
     
   let do_request_by_uri
@@ -38,20 +38,18 @@ module S = struct
     let module Client = Cohttp_lwt_unix.Client in
     let module Code = Cohttp.Code in
     let module Response = Client.Response in
-    uri
-    |> (match meth with
+    (uri |> (match meth with
     | `GET -> (fun u -> Client.get u)
-    | `POST -> (fun u -> Client.post u)
-    | _ -> raise (Exit)) 
-    >>= fun (resp, body) -> (match Response.status resp with
-    | `Code c -> c
-    | c -> Code.code_of_status c) |> function
-      | c when c = expect -> Body.to_string body >>=
-        (fun b -> parse_response converter b |> return)
-      | c -> Error (`Unexpected_response
-        (expect, c, Code.reason_phrase_of_code c)) |> return
-    
-  let do_request ?parameters:(parameters=[]) t path  = 
+    | `POST -> (fun u -> Client.post u)) >>= fun (resp, body) ->
+      (match Response.status resp with
+      | `Code c -> c
+      | c -> Code.code_of_status c) |> function
+        | c when c = expect -> Body.to_string body >>=
+          (fun b -> parse_response converter b |> return)
+        | c -> Error (`Unexpected_response
+          (expect, c, Code.reason_phrase_of_code c)) |> return)
+  
+  let do_request ?parameters:(parameters=[]) t path = 
     Uri.add_query_params' (Uri.with_path t.uri path) parameters
     |> do_request_by_uri t
   

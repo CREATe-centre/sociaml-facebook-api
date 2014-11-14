@@ -1,11 +1,11 @@
-module Client_ID = struct
+module Client_id = struct
   type t = string
   let to_string s = s
   let of_string s = s
 end
 
 
-module Client_Secret = struct
+module Client_secret = struct
   type t = string
   let to_string s = s
   let of_string s = s
@@ -38,7 +38,7 @@ let authorize_uri
   |> Uri.add_query_param' & ("redirect_uri", Uri.to_string redirect_uri))
   |> Uri.add_query_param' & ("state", match state with | Some s -> s | None -> ""))
   |> Uri.add_query_param' & ("scope", match permissions with
-    | Some ps -> ps |> Util.List.implode ~sep:","
+    | Some ps -> Util.List.implode "," ps
     | None -> "")
 
 let access_token_uri 

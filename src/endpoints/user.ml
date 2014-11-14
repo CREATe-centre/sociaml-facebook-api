@@ -28,7 +28,7 @@ module Home = struct
 	
 	
 	module Action = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			name : string;
 			link : Common.uri;
 		} with conv(json)
@@ -36,7 +36,7 @@ module Home = struct
 	
 	
 	module Application = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			id : string;
 			name : string;
 			namespace : string mc_option;
@@ -45,7 +45,7 @@ module Home = struct
 	
 	
 	module Category = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			id						 : string;
 			name					 : string;
 		} with conv(json)
@@ -53,7 +53,7 @@ module Home = struct
 	
 	
 	module Profile = struct
-    type t = {
+    type t (: Ignore_unknown_fields :) = {
       id : string;
       name : string;
       category : string mc_option;
@@ -73,7 +73,7 @@ module Home = struct
 	
 	
 	module MessageTag = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			id : string;
 			name : string;
 			type' as "type" : MessageTagType.t mc_option;
@@ -106,6 +106,11 @@ module Home = struct
 						| `Ok v'' -> `Ok (k', v'')
 						| `Error e -> `Error e) o
 
+    let t_of_json_exn ?trace j = 
+      match t_of_json ?trace j with
+      | `Ok t -> t
+      | `Error e -> raise (Common.Meta_conv_error e)
+
     let json_of_t t = 
       Json.Object(t |> List.map (fun (k,v) -> string_of_int k, MessageTag.json_of_t v))
 		
@@ -113,7 +118,7 @@ module Home = struct
 	
 	
 	module Comment = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			id : string;
 			from : Profile.t;
 			message : string;
@@ -132,18 +137,18 @@ module Home = struct
 			
 	  type data = Comment.t with conv(json)
 		
-		type cursors = {
+		type cursors (: Ignore_unknown_fields :) = {
    		after : string;
 			before : string;
   	} with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)
@@ -152,7 +157,7 @@ module Home = struct
 	
 	
 	module Properties = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			name : string mc_option;
 			text : string;
 			href : Common.uri mc_option;
@@ -161,7 +166,7 @@ module Home = struct
 	
 	
 	module Shares = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			count : int;
 		} with conv(json)
 	end
@@ -191,18 +196,18 @@ module Home = struct
 			
 		type data = Profile.t with conv(json)
 		
-		type cursors = {
+		type cursors (: Ignore_unknown_fields :) = {
    		after : string;
 			before : string;
   	} with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)
@@ -216,18 +221,18 @@ module Home = struct
 			
 		type data = Profile.t with conv(json)
 		
-		type cursors = {
+		type cursors (: Ignore_unknown_fields :) = {
    		after : string;
 			before : string;
   	} with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)
@@ -264,7 +269,7 @@ module Home = struct
 			| Unknown as ""
 			with conv(json)
 		
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			description : string mc_option;
 			value : group;
 			friends : friend_group mc_option;
@@ -277,7 +282,7 @@ module Home = struct
 	
 	
 	module Location = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			country : string mc_option;
 			city : string mc_option;
 			longitude : float;
@@ -291,7 +296,7 @@ module Home = struct
 	
 	
 	module Page = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			id : string;
 			name : string;
 			location : Location.t mc_option;
@@ -300,7 +305,7 @@ module Home = struct
 	
   
   module Post = struct
-    type t = {
+    type t (: Ignore_unknown_fields :) = {
 			actions : Action.t list mc_option;
 			application : Application.t mc_option;
 			caption : string mc_option;
@@ -342,18 +347,18 @@ module Home = struct
     
     type data = Post.t with conv(json)
 		
-		type cursors = {
+		type cursors (: Ignore_unknown_fields :) = {
    		after : string;
 			before : string;
   	} with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)
@@ -376,18 +381,18 @@ module Feed = struct
     
     type data = Home.Post.t with conv(json)
         
-    type cursors = {
+    type cursors (: Ignore_unknown_fields :) = {
       after : string;
       before : string;
     } with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
             cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)
@@ -403,7 +408,7 @@ module Feed = struct
 	
 	
 	module PublishResponse = struct
-		type t = {
+		type t (: Ignore_unknown_fields :) = {
 			id	: string;
 		} with conv(json)
 	end
@@ -422,18 +427,18 @@ module Posts = struct
     
     type data = Home.Post.t with conv(json)
         
-    type cursors = {
+    type cursors (: Ignore_unknown_fields :) = {
       after : string;
       before : string;
     } with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
             cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)
@@ -454,18 +459,18 @@ module Friends = struct
     
     type data = t with conv(json)
     
-    type cursors = {
+    type cursors (: Ignore_unknown_fields :) = {
       after : string;
       before : string;
     } with conv(json)
       
-    type page_navigation = {
+    type page_navigation (: Ignore_unknown_fields :) = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
       cursors : cursors mc_option;
     } with conv(json)
     
-    type t = { 
+    type t (: Ignore_unknown_fields :) = { 
       data : data list; 
       paging : page_navigation mc_option;
     } with conv(json)

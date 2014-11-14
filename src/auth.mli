@@ -1,11 +1,11 @@
-module Client_ID : sig
+module Client_id : sig
   type t
   val to_string : t -> string
   val of_string : string -> t
 end
 
 
-module Client_Secret : sig
+module Client_secret : sig
   type t
   val to_string : t -> string
   val of_string : string -> t
@@ -24,13 +24,13 @@ val authorize_uri :
     -> ?state:string 
     -> ?permissions:string list
     -> ?response_type:string
-    -> Client_ID.t 
+    -> Client_id.t 
     -> Uri.t
     
 val access_token_uri :
     ?redirect_uri:Uri.t
-    -> Client_ID.t
-    -> Client_Secret.t
+    -> Client_id.t
+    -> Client_secret.t
     -> string
     -> Uri.t
     

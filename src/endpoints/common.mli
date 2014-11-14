@@ -1,62 +1,44 @@
-type 'a decoder = ('a, Tiny_json.Json.t) Meta_conv.Types.Decoder.t
+open Meta_conv.Open
+open Json_conv
+open Tiny_json
 
-type 'a encoder = ('a, Tiny_json.Json.t) Meta_conv.Types.Encoder.t
+exception Meta_conv_error of Json.t Meta_conv.Error.t
 
-type calendar_iso8601 = CalendarLib.Calendar.t
+type calendar_iso8601 = CalendarLib.Calendar.t with conv(json)
 
-val calendar_iso8601_of_json : calendar_iso8601 decoder
-
-val json_of_calendar_iso8601 : calendar_iso8601 encoder
-
-type calendar_us_date = CalendarLib.Calendar.t
-
-val calendar_us_date_of_json : calendar_us_date decoder
-
-val json_of_calendar_us_date : calendar_us_date encoder
+type calendar_us_date = CalendarLib.Calendar.t with conv(json)
   
-type uri = Uri.t
+type uri = Uri.t with conv(json)
 
-val uri_of_json : uri decoder
-
-val json_of_uri : uri encoder
-
-type csv = Csv.t
-
-val csv_of_json : csv decoder
-
-val json_of_csv : csv encoder
+type csv = Csv.t with conv(json)
 
 
 module NumberRange : sig
   type t = {
     min            : int;
     max            : int;
-  }
+  } with conv(json)
 end
 
 
 module type PagedResponse = sig
   
-  type data
+  type data with conv(json)
 	
 	type cursors = {
 		after          : string;
 		before         : string;
-  }
+  } with conv(json)
   
   type page_navigation = {
     next           : uri option;
     previous       : uri option;
 		cursors        : cursors option;
-  } 
+  } with conv(json)
   
   type t = { 
     data           : data list; 
     paging         : page_navigation option; 
-  }
-  
-  val t_of_json    : t decoder
-  
-  val json_of_t    : t encoder
+  } with conv(json)
   
 end

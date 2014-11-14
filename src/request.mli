@@ -6,6 +6,7 @@ module Error : sig
     | `Unexpected_response of expected * actual * reason
     | `Exception of exn
     | `Conversion_error of 'a Meta_conv.Error.t 
+    | `Generic_error of string
   ]
 end
 

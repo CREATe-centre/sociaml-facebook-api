@@ -1,3 +1,7 @@
+open Meta_conv.Open
+open Json_conv
+open Tiny_json
+
 type t = {
   id                 : string;
   bio                : string option;
@@ -15,9 +19,7 @@ type t = {
   username           : string option;
   verified           : bool option;
   website            : Common.uri option;
-}
-
-val t_of_json     : t Common.decoder
+} with conv(json)
 
 module Home : sig
 	
@@ -28,7 +30,7 @@ module Home : sig
 		type t = {
 			name					 : string;
 			link					 : Common.uri;
-		}		
+		} with conv(json)
 	end
 	
 	
@@ -37,7 +39,7 @@ module Home : sig
 			id						 : string;
 			name					 : string;
 			namespace			 : string option;
-		}
+		} with conv(json)
 	end
 	
 	
@@ -45,7 +47,7 @@ module Home : sig
 		type t = {
 			id						 : string;
 			name					 : string;
-		}
+		} with conv(json)
 	end
 	
 	
@@ -55,7 +57,7 @@ module Home : sig
 	    name           : string;
 	    category       : string option;
 			category_list  : Category.t list option;
-	  }
+	  } with conv(json)
 	end
 	
 	
@@ -65,6 +67,7 @@ module Home : sig
 			| User
 			| Group
       | Application
+    with conv(json)
 	end
 	
 	
@@ -75,12 +78,12 @@ module Home : sig
 			type'          : MessageTagType.t option;
 			offset         : int;
 			length         : int;
-		}
+		} with conv(json)
 	end
 	
 	
 	module MessageTagMap : sig
-		type t = (int * MessageTag.t) list
+		type t = (int * MessageTag.t) list with conv(json)
 	end
 	
 	
@@ -94,7 +97,7 @@ module Home : sig
 			like_count     : int;
 			message_tags   : MessageTag.t list option;
 			user_likes     : bool;
-		}
+		} with conv(json)
 	end
 		
 		
@@ -106,14 +109,14 @@ module Home : sig
 			name					 : string option;
 			text					 : string;
 			href					 : Common.uri option;
-		}
+		} with conv(json)
 	end
 	
 	
 	module Shares : sig
 		type t = {
 			count					 : int;
-		}
+		} with conv(json)
 	end
 	
 	
@@ -131,6 +134,7 @@ module Home : sig
 			| Published_story
 			| Tagged_in_photo
 			| Approved_friend
+    with conv(json)
 	end
 	
 	
@@ -147,6 +151,7 @@ module Home : sig
 			| Photo
 			| Video
 			| Swf
+    with conv(json)
 	end
 	
 	
@@ -159,12 +164,14 @@ module Home : sig
 			| Self
 			| Custom
 			| Unknown
+    with conv(json)
 
 		type friend_group =
 			| All_friends
 			| Friends_of_friends
 			| Some_friends
 			| Unknown
+    with conv(json)
 		
 		type t = {
 			description		 : string option;
@@ -173,7 +180,8 @@ module Home : sig
 			networks			 : string option;
 			allow          : Common.csv option;
 			deny           : Common.csv option;
-		}
+		} with conv(json)
+    
 	end
 	
 	
@@ -187,7 +195,7 @@ module Home : sig
 			street         : string option;
 			located_in     : string option;
 			latitude       : float;
-		}
+		} with conv(json)
 	end
 	
 	
@@ -196,7 +204,7 @@ module Home : sig
 			id						 : string;
 			name           : string;
 			location			 : Location.t option;
-		}
+		} with conv(json)
 	end
 	
 	
@@ -234,9 +242,7 @@ module Home : sig
 	    updated_time   : Common.calendar_iso8601;
         width          : int option;
 	    with_tags      : To.t option;
-	  }
-    
-    val json_of_t : t Common.encoder
+	  } with conv(json)
     
 	end
 
@@ -251,7 +257,7 @@ module Feed : sig
 	val read_permissions : string list
 	
 	val publish_permissions : string list
-  
+    
   
   module ReadResponse : Common.PagedResponse with type data = Home.Post.t
 	
@@ -259,7 +265,7 @@ module Feed : sig
 	module PublishRequest : sig
 		type t = {
 			message					: string;
-		}		
+		}
 	end
 	
 	
@@ -267,9 +273,7 @@ module Feed : sig
 		
 		type t = {
 			id							: string;
-		}		
-		
-		val t_of_json     : t Common.decoder
+		} with conv(json)
 		
 	end
 	
