@@ -43,7 +43,7 @@ module S = struct
     | `GET -> (fun u -> Client.get u)
     | `POST -> (fun u -> Client.post u)
     | _ -> raise (Exit)) 
-    >>= fun (resp, body) -> (match resp.Response.status with
+    >>= fun (resp, body) -> (match Response.status resp with
     | `Code c -> c
     | c -> Code.code_of_status c) |> function
       | c when c = expect -> Body.to_string body >>=
