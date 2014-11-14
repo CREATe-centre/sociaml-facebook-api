@@ -1,23 +1,23 @@
 # OASIS_START
-# DO NOT EDIT (digest: 09f18384108d5a1104eea3e496a9abaf)
-version = "0.3.5"
-description = "Facebook Graph API SDK for OCaml"
+# DO NOT EDIT (digest: e2eecc5ece5a2bf8f73ef2bf5d666059)
+version = "0.4.0"
+description = "Facebook Graph API Client Library for OCaml"
 requires =
-"cohttp cohttp.lwt core facebook.endpoints lwt lwt.syntax meta_conv meta_conv.syntax tiny_json_conv uri"
-archive(byte) = "facebook.cma"
-archive(byte, plugin) = "facebook.cma"
-archive(native) = "facebook.cmxa"
-archive(native, plugin) = "facebook.cmxs"
-exists_if = "facebook.cma"
+"cohttp cohttp.lwt core_kernel sociaml_facebook_api.endpoints lwt lwt.syntax meta_conv meta_conv.syntax tiny_json_conv uri"
+archive(byte) = "sociaml_facebook_api.cma"
+archive(byte, plugin) = "sociaml_facebook_api.cma"
+archive(native) = "sociaml_facebook_api.cmxa"
+archive(native, plugin) = "sociaml_facebook_api.cmxs"
+exists_if = "sociaml_facebook_api.cma"
 package "endpoints" (
- version = "0.3.5"
- description = "Facebook Graph API SDK for OCaml"
+ version = "0.4.0"
+ description = "Facebook Graph API Client Library for OCaml"
  requires = "calendar csv meta_conv meta_conv.syntax tiny_json_conv uri"
- archive(byte) = "endpoints.cma"
- archive(byte, plugin) = "endpoints.cma"
- archive(native) = "endpoints.cmxa"
- archive(native, plugin) = "endpoints.cmxs"
- exists_if = "endpoints.cma"
+ archive(byte) = "sociaml_facebook_api_endpoints.cma"
+ archive(byte, plugin) = "sociaml_facebook_api_endpoints.cma"
+ archive(native) = "sociaml_facebook_api_endpoints.cmxa"
+ archive(native, plugin) = "sociaml_facebook_api_endpoints.cmxs"
+ exists_if = "sociaml_facebook_api_endpoints.cma"
 )
 # OASIS_STOP
 

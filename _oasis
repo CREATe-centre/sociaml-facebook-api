@@ -1,30 +1,27 @@
 OASISFormat: 0.4
-Name:        facebook-sdk
-Version:     0.3.5
-Synopsis:    Facebook Graph API SDK for OCaml
+Name:        sociaml-facebook-api
+Version:     0.4.0
+Synopsis:    Facebook Graph API Client Library for OCaml
 Description: 
-  OCaml bindings to the Facebook graph API using cohttp and lwt threading.  
-  This package is still in the early stages of development and at present
-  only contains the functionality required to fetch a user's time-line and
-  to publish simple messages to the time-line.
+  Access version 1.0 of the Facebook Graph API in OCaml applications.
 Authors:     Dominic Price
 Copyrights:  (C) 2014 Horizon Digital Economy Research
 LicenseFile: LICENSE
 License:     GPL-3
-Homepage:    https://github.com/dominicjprice/facebook-sdk
+Homepage:    https://github.com/dominicjprice/sociaml-facebook-api
 Plugins:     META (0.4), DevFiles (0.4)
 BuildTools:  ocamlbuild, ocamldoc, make, awk
 
-Library facebook
+Library sociaml_facebook_api
   Path:           src
-  Findlibname:    facebook
+  Findlibname:    sociaml_facebook_api
   Modules:        Api, Auth, Request, Request_cohttp, Util
   Pack:           true
   BuildDepends:
     cohttp (>= 0.12.0),
     cohttp.lwt,
-    core,
-    facebook.endpoints,
+    core_kernel,
+    sociaml_facebook_api.endpoints,
     lwt,
     lwt.syntax,
     meta_conv,
@@ -32,10 +29,10 @@ Library facebook
     tiny_json_conv,
     uri
     
-Library endpoints
+Library sociaml_facebook_api_endpoints
   Path:           src/endpoints
   Findlibname:    endpoints
-  FindlibParent:  facebook
+  FindlibParent:  sociaml_facebook_api
   Modules:        Common, User
   Pack:           true
   BuildDepends:
@@ -46,14 +43,14 @@ Library endpoints
     tiny_json_conv,
     uri
     
-Executable feed_example
-  Path:           examples
-  Install:        false
-  MainIs:         feed_example.ml
-  CompiledObject: native
-  BuildDepends:
-    core,
-    facebook
+#Executable feed_example
+#  Path:           examples
+#  Install:        false
+#  MainIs:         feed_example.ml
+#  CompiledObject: native
+#  BuildDepends:
+#    core_kernel,
+#    facebook
     
 Executable friend_list_example
   Path:           examples
@@ -61,25 +58,25 @@ Executable friend_list_example
   MainIs:         friend_list_example.ml
   CompiledObject: native
   BuildDepends:
-    core,
-    facebook
+    core_kernel,
+    sociaml_facebook_api,
+    sociaml_facebook_api.endpoints    
     
-    
-Document facebook
+Document sociaml_facebook_api
   Type:           ocamlbuild (0.1.0)
-  Title:          Facebook-SDK API Reference
+  Title:          sociaml-facebook-api Reference
   Authors:        Dominic Price
   Format:         HTML
   Index:          index.html
-  InstallDir:     $htmldir/facebook-sdk
+  InstallDir:     $htmldir/sociaml-facebook-api
   XOCamlbuildPath: 
     src
   XOCamlbuildLibraries: 
-    facebook,
-    facebook.endpoints
+    sociaml_facebook_api,
+    sociaml_facebook_api.endpoints
 
 SourceRepository head
   Type:           git
-  Location:       https://github.com/dominicjprice/facebook-sdk.git
-  Browser:        https://github.com/dominicjprice/facebook-sdk
+  Location:       https://github.com/dominicjprice/sociaml-facebook-api.git
+  Browser:        https://github.com/dominicjprice/sociaml-facebook-api
   Branch:         master    

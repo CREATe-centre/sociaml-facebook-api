@@ -1,6 +1,6 @@
 module S = struct
   
-  open Core.Result
+  open Core_kernel.Result
   open Lwt
   open Tiny_json
   
@@ -19,7 +19,7 @@ module S = struct
      
   let parse_response converter data =
     let open Request.Error in
-    let open Core.Result in
+    let open Core_kernel.Result in
     try
       Json.parse data |> fun parsed ->
         match converter ?trace:None parsed with

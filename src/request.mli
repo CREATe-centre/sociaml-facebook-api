@@ -10,7 +10,7 @@ module Error : sig
 end
 
 
-type ('a, 'b) response = ('a, 'b) Core.Result.t Lwt.t
+type ('a, 'b) response = ('a, 'b) Core_kernel.Result.t Lwt.t
 
 type 'a decoder = 
   ?trace:Tiny_json.Json.t Meta_conv.Error.trace 

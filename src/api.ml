@@ -1,6 +1,8 @@
+module Endpoints = Sociaml_facebook_api_endpoints
+
 module S (Req : Request.S) = struct
   
-  module R = Core.Result
+  module R = Core_kernel.Result
     
     open Lwt
     open Endpoints.Common

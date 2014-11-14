@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 0b55e631c9cc9126889554c336c2d0ec) *)
+(* DO NOT EDIT (digest: 40f068b932cb56acb49931e7d6bde008) *)
 module OASISGettext = struct
 (* # 22 "src/oasis/OASISGettext.ml" *)
 
@@ -608,10 +608,14 @@ open Ocamlbuild_plugin;;
 let package_default =
   {
      MyOCamlbuildBase.lib_ocaml =
-       [("endpoints", ["src/endpoints"], []); ("facebook", ["src"], [])];
+       [
+          ("sociaml_facebook_api_endpoints", ["src/endpoints"], []);
+          ("sociaml_facebook_api", ["src"], [])
+       ];
      lib_c = [];
      flags = [];
-     includes = [("src", ["src/endpoints"]); ("examples", ["src"])]
+     includes =
+       [("src", ["src/endpoints"]); ("examples", ["src"; "src/endpoints"])]
   }
   ;;
 
@@ -619,6 +623,6 @@ let conf = {MyOCamlbuildFindlib.no_automatic_syntax = false}
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default conf package_default;;
 
-# 623 "myocamlbuild.ml"
+# 627 "myocamlbuild.ml"
 (* OASIS_STOP *)
 Ocamlbuild_plugin.dispatch dispatch_default;;

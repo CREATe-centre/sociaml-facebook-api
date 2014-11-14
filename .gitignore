@@ -25,3 +25,6 @@ setup.log
 
 # Opam release files
 opam-releases
+
+# Vi temporary files
+*.swp

@@ -12,7 +12,8 @@ module S (Req : Request.S) : sig
     val read : 
       ?user_id : string
       -> Req.t
-      -> (Endpoints.User.t, [> | Tiny_json.Json.t Request.Error.t ]) Request.response
+      -> (Sociaml_facebook_api_endpoints.User.t, 
+        [> | Tiny_json.Json.t Request.Error.t ]) Request.response
     
     module Home : sig
 			
@@ -22,7 +23,7 @@ module S (Req : Request.S) : sig
         -> ?until : int
         -> ?limit : int
         -> Req.t
-        -> ((Endpoints.User.Home.ReadResponse.t, 
+        -> ((Sociaml_facebook_api_endpoints.User.Home.ReadResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
 		
 		end
@@ -36,14 +37,14 @@ module S (Req : Request.S) : sig
         -> ?until : int
         -> ?limit : int
         -> Req.t
-        -> ((Endpoints.User.Feed.ReadResponse.t, 
+        -> ((Sociaml_facebook_api_endpoints.User.Feed.ReadResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
 			
 			val publish :
 				?user_id : string
-				-> Endpoints.User.Feed.PublishRequest.t
+				-> Sociaml_facebook_api_endpoints.User.Feed.PublishRequest.t
 				-> Req.t
-				-> (Endpoints.User.Feed.PublishResponse.t, 
+				-> (Sociaml_facebook_api_endpoints.User.Feed.PublishResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ]) Request.response
 			
 		end
@@ -57,7 +58,7 @@ module S (Req : Request.S) : sig
         -> ?until : int
         -> ?limit : int
         -> Req.t
-        -> ((Endpoints.User.Posts.ReadResponse.t, 
+        -> ((Sociaml_facebook_api_endpoints.User.Posts.ReadResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
             
     end
@@ -69,7 +70,7 @@ module S (Req : Request.S) : sig
         ?user_id : string  
         -> ?limit : int
         -> Req.t
-        -> ((Endpoints.User.Friends.ReadResponse.t, 
+        -> ((Sociaml_facebook_api_endpoints.User.Friends.ReadResponse.t, 
           [> | Tiny_json.Json.t Request.Error.t ] as 'a) paged, 'a) Request.response
           
     end

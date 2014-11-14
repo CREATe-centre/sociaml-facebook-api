@@ -1,33 +1,23 @@
-print_endline "Enter your API token:"
+(*
+  A very trivial example showing use of the API.
+  Fetches a list of contacts and prints them to the console.
+  You must already have created an access token which
+  the application will ask for when you execute it.
+ *)
+
+print_endline "Enter your API access token:"
 let token = read_line ()
   
 module API = Api.S(Request_cohttp.S)
-module R = Core.Result
+module Endpoints = Sociaml_facebook_api_endpoints
+module R = Core_kernel.Result
+
 open Lwt
 open Printf
 
 let print_friend f =
   let open Endpoints.User in
-  printf "ID: %s\nName: %s\nGender: %s\nName format: %s\nLocale: %s\n\n"
-  f.id
-  f.name
-  (match f.gender with | Some g -> g | None -> "")
-  (match f.name_format with | Some nf -> nf | None -> "")
-  (match f.locale with | Some l -> l | None -> "");
-  flush_all ()
-  (*id                 : string;
-  bio                : string option;
-  birthday           : Common.calendar_us_date option;
-  email              : string option;
-  first_name         : string option;
-  gender             : string option; The gender pronoun selected by this person. This is omitted if that pronoun is a custom value.
-  last_name          : string option;
-  link               : Common.uri option;  A link to the person's profile.
-  locale             : string option; "The person's locale."
-  name               : string; "The person's full name"
-  name_format        : string option; "The person's name formatted to correctly handle Chinese, Japanese, Korean ordering"
-  username           : string option;
-  website            : Common.uri option;*)
+  printf "Name: %s (ID: %s)\n" f.name f.id
 
 let print_error error = 
   match error with
@@ -37,11 +27,12 @@ let print_error error =
     printf "Conversion error:\n%s\n" (Buffer.contents buf);
     Buffer.reset buf
   | `Exception e -> 
-    printf "Exception"
+    eprintf "Exception"
   | `Unexpected_response (expected, actual, reason) ->
-    printf "Unexpected response:\nActual - %i\nExpected - %i\nReason - %s\n)" expected actual reason
+    eprintf "Unexpected response:\nActual - %i\nExpected - %i\nReason - %s\n" 
+        expected actual reason
   | _ -> 
-    printf "Unknown error\n"
+    eprintf "Unknown error\n"
 
 let () = 
   let open Endpoints.User in
@@ -54,21 +45,15 @@ let () =
     | R.Ok paged ->
       API.(paged.response.data)
       |> Lwt_list.map_s (fun friend ->
-        return friend.id) >>=
-      Lwt_list.map_p (fun id ->
-        API.User.read ~user_id:id request >>= (fun r ->
-          match r with
-          | R.Ok f ->
-            print_friend f;
-            return_unit
-          | R.Error e -> print_error e; 
-           return_unit)) >>= (fun _ -> match API.(paged.next) with
+        print_friend friend;
+        return_unit) >>= (fun _ -> match API.(paged.next) with
       | Some next -> 
         printf "Fetching the next page\n";
+        flush_all ();
         next () >>= format_response
       | None ->
         printf "There are no more pages\n";
-        return_unit) 
-      
+        flush_all ();
+        return_unit)  
   in
   Lwt.bind (API.User.Friends.read request) format_response |> Lwt_main.run

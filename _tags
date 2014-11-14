@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: c20251ef5ab15496b2eb460e4dce5b0e)
+# DO NOT EDIT (digest: 74bfdccb0adba811ae40e5a7ab667d3e)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -14,27 +14,27 @@ true: annot, bin_annot
 ".git": not_hygienic
 "_darcs": -traverse
 "_darcs": not_hygienic
-# Library endpoints
-"src/endpoints/endpoints.cmxs": use_endpoints
-"src/endpoints/common.cmx": for-pack(Endpoints)
-"src/endpoints/user.cmx": for-pack(Endpoints)
+# Library sociaml_facebook_api_endpoints
+"src/endpoints/sociaml_facebook_api_endpoints.cmxs": use_sociaml_facebook_api_endpoints
+"src/endpoints/common.cmx": for-pack(Sociaml_facebook_api_endpoints)
+"src/endpoints/user.cmx": for-pack(Sociaml_facebook_api_endpoints)
 <src/endpoints/*.ml{,i,y}>: pkg_calendar
 <src/endpoints/*.ml{,i,y}>: pkg_csv
 <src/endpoints/*.ml{,i,y}>: pkg_meta_conv
 <src/endpoints/*.ml{,i,y}>: pkg_meta_conv.syntax
 <src/endpoints/*.ml{,i,y}>: pkg_tiny_json_conv
 <src/endpoints/*.ml{,i,y}>: pkg_uri
-# Library facebook
-"src/facebook.cmxs": use_facebook
-"src/api.cmx": for-pack(Facebook)
-"src/auth.cmx": for-pack(Facebook)
-"src/request.cmx": for-pack(Facebook)
-"src/request_cohttp.cmx": for-pack(Facebook)
-"src/util.cmx": for-pack(Facebook)
+# Library sociaml_facebook_api
+"src/sociaml_facebook_api.cmxs": use_sociaml_facebook_api
+"src/api.cmx": for-pack(Sociaml_facebook_api)
+"src/auth.cmx": for-pack(Sociaml_facebook_api)
+"src/request.cmx": for-pack(Sociaml_facebook_api)
+"src/request_cohttp.cmx": for-pack(Sociaml_facebook_api)
+"src/util.cmx": for-pack(Sociaml_facebook_api)
 <src/*.ml{,i,y}>: pkg_calendar
 <src/*.ml{,i,y}>: pkg_cohttp
 <src/*.ml{,i,y}>: pkg_cohttp.lwt
-<src/*.ml{,i,y}>: pkg_core
+<src/*.ml{,i,y}>: pkg_core_kernel
 <src/*.ml{,i,y}>: pkg_csv
 <src/*.ml{,i,y}>: pkg_lwt
 <src/*.ml{,i,y}>: pkg_lwt.syntax
@@ -42,26 +42,12 @@ true: annot, bin_annot
 <src/*.ml{,i,y}>: pkg_meta_conv.syntax
 <src/*.ml{,i,y}>: pkg_tiny_json_conv
 <src/*.ml{,i,y}>: pkg_uri
-<src/*.ml{,i,y}>: use_endpoints
-# Executable feed_example
-"examples/feed_example.native": pkg_calendar
-"examples/feed_example.native": pkg_cohttp
-"examples/feed_example.native": pkg_cohttp.lwt
-"examples/feed_example.native": pkg_core
-"examples/feed_example.native": pkg_csv
-"examples/feed_example.native": pkg_lwt
-"examples/feed_example.native": pkg_lwt.syntax
-"examples/feed_example.native": pkg_meta_conv
-"examples/feed_example.native": pkg_meta_conv.syntax
-"examples/feed_example.native": pkg_tiny_json_conv
-"examples/feed_example.native": pkg_uri
-"examples/feed_example.native": use_endpoints
-"examples/feed_example.native": use_facebook
+<src/*.ml{,i,y}>: use_sociaml_facebook_api_endpoints
 # Executable friend_list_example
 "examples/friend_list_example.native": pkg_calendar
 "examples/friend_list_example.native": pkg_cohttp
 "examples/friend_list_example.native": pkg_cohttp.lwt
-"examples/friend_list_example.native": pkg_core
+"examples/friend_list_example.native": pkg_core_kernel
 "examples/friend_list_example.native": pkg_csv
 "examples/friend_list_example.native": pkg_lwt
 "examples/friend_list_example.native": pkg_lwt.syntax
@@ -69,12 +55,12 @@ true: annot, bin_annot
 "examples/friend_list_example.native": pkg_meta_conv.syntax
 "examples/friend_list_example.native": pkg_tiny_json_conv
 "examples/friend_list_example.native": pkg_uri
-"examples/friend_list_example.native": use_endpoints
-"examples/friend_list_example.native": use_facebook
+"examples/friend_list_example.native": use_sociaml_facebook_api
+"examples/friend_list_example.native": use_sociaml_facebook_api_endpoints
 <examples/*.ml{,i,y}>: pkg_calendar
 <examples/*.ml{,i,y}>: pkg_cohttp
 <examples/*.ml{,i,y}>: pkg_cohttp.lwt
-<examples/*.ml{,i,y}>: pkg_core
+<examples/*.ml{,i,y}>: pkg_core_kernel
 <examples/*.ml{,i,y}>: pkg_csv
 <examples/*.ml{,i,y}>: pkg_lwt
 <examples/*.ml{,i,y}>: pkg_lwt.syntax
@@ -82,8 +68,8 @@ true: annot, bin_annot
 <examples/*.ml{,i,y}>: pkg_meta_conv.syntax
 <examples/*.ml{,i,y}>: pkg_tiny_json_conv
 <examples/*.ml{,i,y}>: pkg_uri
-<examples/*.ml{,i,y}>: use_endpoints
-<examples/*.ml{,i,y}>: use_facebook
+<examples/*.ml{,i,y}>: use_sociaml_facebook_api
+<examples/*.ml{,i,y}>: use_sociaml_facebook_api_endpoints
 # OASIS_STOP
 <**/*.ml{,i}>: syntax_camlp4o
 <**/*.ml{,i}>: thread

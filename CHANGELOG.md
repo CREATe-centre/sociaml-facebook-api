@@ -1,16 +1,30 @@
+0.4.0 / 2014-11-14
+==================
+
+  * Removed dependency on Core, now depends on Core\_kernel.
+  * Changed names for packed modules:
+    * Facebook -> Sociaml\_facebook\_api
+    * Endpoints -> Sociaml\_facebook\_api\_endpoints
+  * Changed parent findlib package name: facebook -> sociaml\_facebook\_api
+  * Requires cohttp >= 0.12.0
+  
 0.3.5 / 2014-05-14
+==================
 
   * Facebook changed the url parameter when requesting permissions.
 
 0.3.4 / 2014-04-28
+==================
 
   * Added function to generate access token exchange uri.
 
 0.3.3 / 2014-04-27
+==================
 
   * Cleared up typo in previous release.
 
 0.3.2 / 2014-04-27
+==================
 
   * Added friend endpoint.
 
@@ -68,7 +82,7 @@
 0.2.3 / 2014-02-28
 ==================
 
-  * Expose Types_ext module.
+  * Expose Types\_ext module.
 
 0.2.2 / 2014-02-28
 ==================

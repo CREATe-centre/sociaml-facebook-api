@@ -1,6 +1,6 @@
-Facebook Graph API client library for oCaml
+Facebook Graph API Client Library for OCaml
 -------------------------------------------
 
-OCaml bindings to the Facebook graph API using cohttp and lwt threads.  This
-package is still in the early stages of development and at present only
-contains the functionality required to fetch a user's timeline.
+Access version 1.0 of the Facebook Graph API in OCaml applications.  
+The Facebook Graph API documentation is 
+[here](https://developers.facebook.com/docs/graph-api/reference/v1.0).
