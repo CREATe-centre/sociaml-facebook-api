@@ -18,7 +18,7 @@ Library sociaml_facebook_api
   Modules:        Api, Auth, Request, Request_cohttp, Util
   Pack:           true
   BuildDepends:
-    cohttp (>= 0.12.0),
+    cohttp (< 0.12.0),
     cohttp.lwt,
     core_kernel,
     sociaml_facebook_api.endpoints,
