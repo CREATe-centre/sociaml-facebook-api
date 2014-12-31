@@ -22,6 +22,9 @@ module S (Req : Request.S) = struct
     previous : (unit -> (('a, 'b) paged, 'b) Request.response) option;
   }
 
+  type 'a paged_response =
+    (('a, [ Tiny_json.Json.t Request.Error.t ]) paged,
+     [ Tiny_json.Json.t Request.Error.t ]) Request.response
 
   module Paged (PR : PagedResponse) = struct
 
