@@ -20,17 +20,16 @@ end
 
 
 val authorize_uri :
-    ?redirect_uri:Uri.t 
-    -> ?state:string 
-    -> ?permissions:string list
-    -> ?response_type:string
-    -> Client_id.t 
-    -> Uri.t
-    
+  ?redirect_uri:Uri.t
+  -> ?state:string
+  -> ?permissions:string list
+  -> ?response_type:string
+  -> Client_id.t
+  -> Uri.t
+
 val access_token_uri :
-    ?redirect_uri:Uri.t
-    -> Client_id.t
-    -> Client_secret.t
-    -> string
-    -> Uri.t
-    
+  ?redirect_uri:Uri.t
+  -> Client_id.t
+  -> Client_secret.t
+  -> string
+  -> Uri.t
