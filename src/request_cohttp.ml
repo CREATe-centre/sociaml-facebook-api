@@ -39,16 +39,18 @@ module S = struct
     let module Client = Cohttp_lwt_unix.Client in
     let module Code = Cohttp.Code in
     let module Response = Client.Response in
-    (uri |> (match meth with
-    | `GET -> (fun u -> Client.get u)
-    | `POST -> (fun u -> Client.post u)) >>= fun (resp, body) ->
-      (match Response.status resp with
+    (match meth with
+     | `GET ->  Client.get uri
+     | `POST -> Client.post uri)
+    >>= fun (resp, body) ->
+    let code = match Response.status resp with
       | `Code c -> c
-      | c -> Code.code_of_status c) |> function
-        | c when c = expect -> Body.to_string body >>=
-          (fun b -> parse_response converter b |> return)
-        | c -> Error (`Unexpected_response
-          (expect, c, Code.reason_phrase_of_code c)) |> return)
+      | c -> Code.code_of_status c in
+    if code = expect then
+      Body.to_string body >>= (fun b -> parse_response converter b |> return)
+    else
+      Error (`Unexpected_response
+              (expect, code, Code.reason_phrase_of_code code)) |> return
 
   let do_request ?parameters:(parameters=[]) t path =
     Uri.add_query_params' (Uri.with_path t.uri path) parameters
