@@ -5,6 +5,7 @@ Synopsis:    Facebook Graph API Client Library for OCaml
 Description: 
   Access version 1.0 of the Facebook Graph API in OCaml applications.
 Authors:     Dominic Price
+Maintainers: Dominic Price <dominic.price@nottingham.ac.uk>
 Copyrights:  (C) 2014 Horizon Digital Economy Research
 LicenseFile: LICENSE
 License:     ISC
