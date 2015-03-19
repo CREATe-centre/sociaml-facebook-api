@@ -4,8 +4,8 @@ end
 
 
 module Params : sig
-  
-  val filter_optional_params : 
-      (string * 'a option * ('a -> string)) list -> (string * string) list
+
+  val filter_optional_params :
+    (string * 'a option * ('a -> string)) list -> (string * string) list
 
 end
