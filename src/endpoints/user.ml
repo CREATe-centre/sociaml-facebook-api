@@ -1,8 +1,7 @@
 open Meta_conv.Open
-open Json_conv
 open Tiny_json
 
-type t (: Ignore_unknown_fields :) = {
+type t = {
   id : string;
   bio : string mc_option;
   birthday : Common.calendar_us_date mc_option;
@@ -19,7 +18,7 @@ type t (: Ignore_unknown_fields :) = {
   username : string mc_option;
   verified : bool mc_option;
   website : Common.uri mc_option;
-} with conv(json)
+} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 
 
 module Home = struct
@@ -28,58 +27,58 @@ module Home = struct
 	
 	
 	module Action = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			name : string;
 			link : Common.uri;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 	
 	module Application = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			id : string;
 			name : string;
 			namespace : string mc_option;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 	
 	module Category = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			id						 : string;
 			name					 : string;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 	
 	module Profile = struct
-    type t (: Ignore_unknown_fields :) = {
+    type t = {
       id : string;
       name : string;
       category : string mc_option;
 			category_list : Category.t list mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
   end
 	
 	
 	module MessageTagType = struct
 		type t =
-			| Page as "page"
-			| User as "user"
-			| Group as "group"
-      | Application as "application"
-		with conv(json)
+			| Page [@conv.as "page"]
+			| User [@conv.as "user"]
+			| Group [@conv.as "group"]
+      | Application [@conv.as "application"]
+		[@@deriving conv{json}]
 	end
 	
 	
 	module MessageTag = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			id : string;
 			name : string;
-			type' as "type" : MessageTagType.t mc_option;
+			type' [@conv.as "type"] : MessageTagType.t mc_option;
 			offset : int;
 			length : int;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 	
@@ -90,7 +89,7 @@ module Home = struct
 		let t_of_json ?trace:(trace=[]) j =
   		let err type' = 
     		let msg = Printf.sprintf "Expected object, found %s" type' in
-    		`Error (Meta_conv.Error.Primitive_decoding_failure msg, j, trace)
+    		`Error (`Primitive_decoding_failure msg, j, trace)
 			in
 			match j with 
 			  | Json.String s -> err "string"
@@ -118,7 +117,7 @@ module Home = struct
 	
 	
 	module Comment = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			id : string;
 			from : Profile.t;
 			message : string;
@@ -127,7 +126,7 @@ module Home = struct
 			like_count : int;
 			message_tags : MessageTag.t list mc_option;
 			user_likes : bool;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 		
 		
@@ -135,58 +134,58 @@ module Home = struct
 		: Common.PagedResponse with type data = Comment.t
 		= struct
 			
-	  type data = Comment.t with conv(json)
+	  type data = Comment.t [@@deriving conv{json}]
 		
-		type cursors (: Ignore_unknown_fields :) = {
+		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(json)
+  	} [@@conv.ignore_unknown_fields][@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 			
 	end
 	
 	
 	module Properties = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			name : string mc_option;
 			text : string;
 			href : Common.uri mc_option;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 	
 	module Shares = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			count : int;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 	
 	module StatusType = struct
 		type t = 
-			| Mobile_status_update as "mobile_status_update"
-			| Created_note as "created_note"
-			| Added_photos as "added_photos"
-			| Added_video as "added_video"
-			| Shared_story as "shared_story"
-			| Created_group as "created_group"
-			| Created_event as "created_event"
-			| Wall_post as "wall_post"
-			| App_created_story as "app_created_story"
-			| Published_story as "published_story"
-			| Tagged_in_photo as "tagged_in_photo"
-			| Approved_friend as "approved_friend"
-			with conv(json)
+			| Mobile_status_update [@conv.as "mobile_status_update"]
+			| Created_note [@conv.as "created_note"]
+			| Added_photos [@conv.as "added_photos"]
+			| Added_video [@conv.as "added_video"]
+			| Shared_story [@conv.as "shared_story"]
+			| Created_group [@conv.as "created_group"]
+			| Created_event [@conv.as "created_event"]
+			| Wall_post [@conv.as "wall_post"]
+			| App_created_story [@conv.as "app_created_story"]
+			| Published_story [@conv.as "published_story"]
+			| Tagged_in_photo [@conv.as "tagged_in_photo"]
+			| Approved_friend [@conv.as "approved_friend"]
+			[@@deriving conv{json}]
 	end
 	
 	
@@ -194,23 +193,23 @@ module Home = struct
 		: Common.PagedResponse with type data = Profile.t
 		= struct
 			
-		type data = Profile.t with conv(json)
+		type data = Profile.t [@@deriving conv{json}]
 		
-		type cursors (: Ignore_unknown_fields :) = {
+		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(json)
+  	} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 			
 	end
 	
@@ -219,93 +218,124 @@ module Home = struct
 		: Common.PagedResponse with type data = Profile.t
 		= struct
 			
-		type data = Profile.t with conv(json)
+		type data = Profile.t [@@deriving conv{json}]
 		
-		type cursors (: Ignore_unknown_fields :) = {
+		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(json)
+  	} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 			
 	end
   
 	
 	module Type = struct
 		type t = 
-			| Link as "link"
-			| Status as "status"
-			| Photo as "photo"
-			| Video as "video" 
-			| Swf as "swf"
-			with conv(json)
+			| Link [@conv.as "link"]
+			| Status [@conv.as "status"]
+			| Photo [@conv.as "photo"]
+			| Video [@conv.as "video"] 
+			| Swf [@conv.as "swf"]
+      | Event [@conv.as "event"]
+			[@@deriving conv{json}]
 	end
 	
 	
 	module Privacy = struct
 		
 		type group = 
-			| Everyone as "EVERYONE"
-			| All_friends as "ALL_FRIENDS"
-			| Friends_of_friends as "FRIENDS_OF_FRIENDS"
-			| Self as "SELF"
-			| Custom as "CUSTOM"
-			| Unknown as ""
-			with conv(json)
+			| Everyone [@conv.as "EVERYONE"]
+			| All_friends [@conv.as "ALL_FRIENDS"]
+			| Friends_of_friends [@conv.as "FRIENDS_OF_FRIENDS"]
+			| Self [@conv.as "SELF"]
+			| Custom [@conv.as "CUSTOM"]
+			| Unknown [@conv.as ""]
+			[@@deriving conv{json}]
 
 		type friend_group =
-			| All_friends as "ALL_FRIENDS"
-			| Friends_of_friends as "FRIENDS_OF_FRIENDS"
-			| Some_friends as "SOME_FRIENDS"
-			| Unknown as ""
-			with conv(json)
+			| All_friends [@conv.as "ALL_FRIENDS"]
+			| Friends_of_friends [@conv.as "FRIENDS_OF_FRIENDS"]
+			| Some_friends [@conv.as "SOME_FRIENDS"]
+			| Unknown [@conv.as ""]
+			[@@deriving conv{json}]
 		
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			description : string mc_option;
 			value : group;
 			friends : friend_group mc_option;
 			networks : string mc_option;
 			allow : Common.csv mc_option;
 			deny : Common.csv mc_option;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 		
 	end
 	
 	
 	module Location = struct
-		type t (: Ignore_unknown_fields :) = {
-			country : string mc_option;
-			city : string mc_option;
-			longitude : float;
-			zip : string mc_option;
-			state : string mc_option;
-			street : string mc_option;
-			located_in : string mc_option;
-			latitude : float;
-		} with conv(json)
+    
+    module StructuredLocation = struct
+  		type t = {
+  			country : string mc_option;
+  			city : string mc_option;
+  			longitude : float;
+  			zip : string mc_option;
+  			state : string mc_option;
+  			street : string mc_option;
+  			located_in : string mc_option;
+  			latitude : float;
+  		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
+    end
+    
+    type t =
+      | Simple of string
+      | Structured of StructuredLocation.t
+    
+    let t_of_json ?trace = function  
+      | Json.String s -> `Ok (Simple (s))
+      | Json.Number n -> `Ok (Simple (n))
+      | Json.Array _ -> `Ok (Simple (""))
+      | Json.Bool b -> `Ok (Simple (string_of_bool b))
+      | Json.Null -> `Ok (Simple (""))
+      | o -> (match StructuredLocation.t_of_json ?trace o with
+        | `Ok t -> `Ok( Structured (t))
+        | `Error e -> `Error e)  
+    
+    let t_of_json_exn ?trace = function  
+      | Json.String s -> Simple (s)
+      | Json.Number n -> Simple (n)
+      | Json.Array _ -> Simple ("")
+      | Json.Bool b -> Simple (string_of_bool b)
+      | Json.Null -> Simple ("")
+      | o -> Structured (StructuredLocation.t_of_json_exn ?trace o)
+    
+    let json_of_t = function
+      | Simple l -> Json.String(l)
+      | Structured l -> (StructuredLocation.json_of_t l)
+    
 	end
 	
 	
 	module Page = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			id : string;
 			name : string;
 			location : Location.t mc_option;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
   
   module Post = struct
-    type t (: Ignore_unknown_fields :) = {
+    type t = {
 			actions : Action.t list mc_option;
 			application : Application.t mc_option;
 			caption : string mc_option;
@@ -332,12 +362,12 @@ module Home = struct
 			status_type : StatusType.t mc_option;
 			story : string mc_option;
 			story_tags : MessageTagMap.t mc_option;
-			to' as "to" : To.t mc_option;
-			type' as "type" : Type.t;
+			to' [@conv.as "to"] : To.t mc_option;
+			type' [@conv.as "type"] : Type.t;
       updated_time : Common.calendar_iso8601;
 			width : int mc_option;
 			with_tags : To.t mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
   end
   
   
@@ -345,23 +375,23 @@ module Home = struct
     : Common.PagedResponse with type data = Post.t 
     = struct
     
-    type data = Post.t with conv(json)
+    type data = Post.t [@@deriving conv{json}]
 		
-		type cursors (: Ignore_unknown_fields :) = {
+		type cursors = {
    		after : string;
 			before : string;
-  	} with conv(json)
+  	} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
 			cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
   end
 
@@ -379,23 +409,23 @@ module Feed = struct
     : Common.PagedResponse with type data = Home.Post.t 
     = struct
     
-    type data = Home.Post.t with conv(json)
+    type data = Home.Post.t [@@deriving conv{json}]
         
-    type cursors (: Ignore_unknown_fields :) = {
+    type cursors = {
       after : string;
       before : string;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
             cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
   end
 	
@@ -408,9 +438,9 @@ module Feed = struct
 	
 	
 	module PublishResponse = struct
-		type t (: Ignore_unknown_fields :) = {
+		type t = {
 			id	: string;
-		} with conv(json)
+		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
 end
@@ -425,23 +455,23 @@ module Posts = struct
     : Common.PagedResponse with type data = Home.Post.t 
     = struct
     
-    type data = Home.Post.t with conv(json)
+    type data = Home.Post.t [@@deriving conv{json}]
         
-    type cursors (: Ignore_unknown_fields :) = {
+    type cursors = {
       after : string;
       before : string;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
             cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
   end
     
@@ -457,23 +487,23 @@ module Friends = struct
       : Common.PagedResponse with type data = t 
       = struct
     
-    type data = t with conv(json)
+    type data = t [@@deriving conv{json}]
     
-    type cursors (: Ignore_unknown_fields :) = {
+    type cursors = {
       after : string;
       before : string;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
       
-    type page_navigation (: Ignore_unknown_fields :) = {
+    type page_navigation = {
       next : Common.uri mc_option;
       previous : Common.uri mc_option;
       cursors : cursors mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
-    type t (: Ignore_unknown_fields :) = { 
+    type t = { 
       data : data list; 
       paging : page_navigation mc_option;
-    } with conv(json)
+    } [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     
   end
   

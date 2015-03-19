@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 74bfdccb0adba811ae40e5a7ab667d3e)
+# DO NOT EDIT (digest: 87abfdbe5a807b33239bf28f528f2032)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -20,9 +20,9 @@ true: annot, bin_annot
 "src/endpoints/user.cmx": for-pack(Sociaml_facebook_api_endpoints)
 <src/endpoints/*.ml{,i,y}>: pkg_calendar
 <src/endpoints/*.ml{,i,y}>: pkg_csv
-<src/endpoints/*.ml{,i,y}>: pkg_meta_conv
-<src/endpoints/*.ml{,i,y}>: pkg_meta_conv.syntax
-<src/endpoints/*.ml{,i,y}>: pkg_tiny_json_conv
+<src/endpoints/*.ml{,i,y}>: pkg_ppx_meta_conv
+<src/endpoints/*.ml{,i,y}>: pkg_ppx_tiny_json_conv
+<src/endpoints/*.ml{,i,y}>: pkg_tiny_json
 <src/endpoints/*.ml{,i,y}>: pkg_uri
 # Library sociaml_facebook_api
 "src/sociaml_facebook_api.cmxs": use_sociaml_facebook_api
@@ -38,9 +38,9 @@ true: annot, bin_annot
 <src/*.ml{,i,y}>: pkg_csv
 <src/*.ml{,i,y}>: pkg_lwt
 <src/*.ml{,i,y}>: pkg_lwt.syntax
-<src/*.ml{,i,y}>: pkg_meta_conv
-<src/*.ml{,i,y}>: pkg_meta_conv.syntax
-<src/*.ml{,i,y}>: pkg_tiny_json_conv
+<src/*.ml{,i,y}>: pkg_ppx_meta_conv
+<src/*.ml{,i,y}>: pkg_ppx_tiny_json_conv
+<src/*.ml{,i,y}>: pkg_tiny_json
 <src/*.ml{,i,y}>: pkg_uri
 <src/*.ml{,i,y}>: use_sociaml_facebook_api_endpoints
 # Executable friend_list_example
@@ -51,9 +51,9 @@ true: annot, bin_annot
 "examples/friend_list_example.native": pkg_csv
 "examples/friend_list_example.native": pkg_lwt
 "examples/friend_list_example.native": pkg_lwt.syntax
-"examples/friend_list_example.native": pkg_meta_conv
-"examples/friend_list_example.native": pkg_meta_conv.syntax
-"examples/friend_list_example.native": pkg_tiny_json_conv
+"examples/friend_list_example.native": pkg_ppx_meta_conv
+"examples/friend_list_example.native": pkg_ppx_tiny_json_conv
+"examples/friend_list_example.native": pkg_tiny_json
 "examples/friend_list_example.native": pkg_uri
 "examples/friend_list_example.native": use_sociaml_facebook_api
 "examples/friend_list_example.native": use_sociaml_facebook_api_endpoints
@@ -64,13 +64,12 @@ true: annot, bin_annot
 <examples/*.ml{,i,y}>: pkg_csv
 <examples/*.ml{,i,y}>: pkg_lwt
 <examples/*.ml{,i,y}>: pkg_lwt.syntax
-<examples/*.ml{,i,y}>: pkg_meta_conv
-<examples/*.ml{,i,y}>: pkg_meta_conv.syntax
-<examples/*.ml{,i,y}>: pkg_tiny_json_conv
+<examples/*.ml{,i,y}>: pkg_ppx_meta_conv
+<examples/*.ml{,i,y}>: pkg_ppx_tiny_json_conv
+<examples/*.ml{,i,y}>: pkg_tiny_json
 <examples/*.ml{,i,y}>: pkg_uri
 <examples/*.ml{,i,y}>: use_sociaml_facebook_api
 <examples/*.ml{,i,y}>: use_sociaml_facebook_api_endpoints
 # OASIS_STOP
-<**/*.ml{,i}>: syntax_camlp4o
 <**/*.ml{,i}>: thread
 <**/*.native>: thread

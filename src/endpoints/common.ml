@@ -1,5 +1,4 @@
 open Meta_conv.Open
-open Json_conv
 open Tiny_json
 
 let cal_format_iso8601 = "%Y-%m-%dT%H:%M:%S%z" 
@@ -15,7 +14,7 @@ module X_of_json_string = struct
     let err type' = 
       let t = match trace with | Some t -> t | None -> [] in
       let msg = Printf.sprintf "Expected string, found %s" type' in
-      `Error (Meta_conv.Error.Primitive_decoding_failure msg, j, t)
+      `Error (`Primitive_decoding_failure msg, j, t)
     in
     match j with 
     | Json.String s -> `Ok (converter s)
@@ -87,28 +86,28 @@ module NumberRange = struct
   type t = {
     min            : int;
     max            : int;
-  } with conv(json)
+  } [@@deriving conv{json}]
 end
 
 
 module type PagedResponse = sig
   
-  type data with conv(json)
+  type data [@@deriving conv{json}]
   
   type cursors = {
 		after : string;
 		before : string;
-  } with conv(json)
+  } [@@deriving conv{json}]
   
   type page_navigation = {
     next : uri mc_option;
     previous : uri mc_option;
 		cursors : cursors mc_option;
-  } with conv(json)
+  } [@@deriving conv{json}]
   
   type t = { 
     data : data list; 
     paging : page_navigation mc_option; 
-  } with conv(json)
+  } [@@deriving conv{json}]
   
 end

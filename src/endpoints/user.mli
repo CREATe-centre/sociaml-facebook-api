@@ -1,7 +1,3 @@
-open Meta_conv.Open
-open Json_conv
-open Tiny_json
-
 type t = {
   id                 : string;
   bio                : string option;
@@ -19,7 +15,7 @@ type t = {
   username           : string option;
   verified           : bool option;
   website            : Common.uri option;
-} with conv(json)
+} [@@deriving conv{json}]
 
 module Home : sig
 	
@@ -30,7 +26,7 @@ module Home : sig
 		type t = {
 			name					 : string;
 			link					 : Common.uri;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
@@ -39,7 +35,7 @@ module Home : sig
 			id						 : string;
 			name					 : string;
 			namespace			 : string option;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
@@ -47,7 +43,7 @@ module Home : sig
 		type t = {
 			id						 : string;
 			name					 : string;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
@@ -57,7 +53,7 @@ module Home : sig
 	    name           : string;
 	    category       : string option;
 			category_list  : Category.t list option;
-	  } with conv(json)
+	  } [@@deriving conv{json}]
 	end
 	
 	
@@ -67,7 +63,7 @@ module Home : sig
 			| User
 			| Group
       | Application
-    with conv(json)
+    [@@deriving conv{json}]
 	end
 	
 	
@@ -78,12 +74,12 @@ module Home : sig
 			type'          : MessageTagType.t option;
 			offset         : int;
 			length         : int;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
 	module MessageTagMap : sig
-		type t = (int * MessageTag.t) list with conv(json)
+		type t = (int * MessageTag.t) list [@@deriving conv{json}]
 	end
 	
 	
@@ -97,7 +93,7 @@ module Home : sig
 			like_count     : int;
 			message_tags   : MessageTag.t list option;
 			user_likes     : bool;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 		
 		
@@ -109,14 +105,14 @@ module Home : sig
 			name					 : string option;
 			text					 : string;
 			href					 : Common.uri option;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
 	module Shares : sig
 		type t = {
 			count					 : int;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
@@ -134,7 +130,7 @@ module Home : sig
 			| Published_story
 			| Tagged_in_photo
 			| Approved_friend
-    with conv(json)
+    [@@deriving conv{json}]
 	end
 	
 	
@@ -151,7 +147,8 @@ module Home : sig
 			| Photo
 			| Video
 			| Swf
-    with conv(json)
+      | Event
+    [@@deriving conv{json}]
 	end
 	
 	
@@ -164,14 +161,14 @@ module Home : sig
 			| Self
 			| Custom
 			| Unknown
-    with conv(json)
+    [@@deriving conv{json}]
 
 		type friend_group =
 			| All_friends
 			| Friends_of_friends
 			| Some_friends
 			| Unknown
-    with conv(json)
+    [@@deriving conv{json}]
 		
 		type t = {
 			description		 : string option;
@@ -180,22 +177,31 @@ module Home : sig
 			networks			 : string option;
 			allow          : Common.csv option;
 			deny           : Common.csv option;
-		} with conv(json)
+		} [@@deriving conv{json}]
     
 	end
 	
 	
 	module Location : sig
-		type t = {
-			country				 : string option;
-			city					 : string option;
-			longitude      : float;
-			zip						 : string option;
-			state          : string option;
-			street         : string option;
-			located_in     : string option;
-			latitude       : float;
-		} with conv(json)
+    
+    module StructuredLocation : sig
+      type t = {
+  			country				 : string option;
+  			city					 : string option;
+  			longitude      : float;
+  			zip						 : string option;
+  			state          : string option;
+  			street         : string option;
+  			located_in     : string option;
+  			latitude       : float;
+  		} [@@deriving conv{json}]
+    end
+    
+    type t =
+      | Simple of string
+      | Structured of StructuredLocation.t
+    [@@deriving conv{json}]
+    
 	end
 	
 	
@@ -204,7 +210,7 @@ module Home : sig
 			id						 : string;
 			name           : string;
 			location			 : Location.t option;
-		} with conv(json)
+		} [@@deriving conv{json}]
 	end
 	
 	
@@ -242,7 +248,7 @@ module Home : sig
 	    updated_time   : Common.calendar_iso8601;
         width          : int option;
 	    with_tags      : To.t option;
-	  } with conv(json)
+	  } [@@deriving conv{json}]
     
 	end
 
@@ -273,7 +279,7 @@ module Feed : sig
 		
 		type t = {
 			id							: string;
-		} with conv(json)
+		} [@@deriving conv{json}]
 		
 	end
 	

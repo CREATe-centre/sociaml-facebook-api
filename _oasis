@@ -24,9 +24,7 @@ Library sociaml_facebook_api
     sociaml_facebook_api.endpoints,
     lwt,
     lwt.syntax,
-    meta_conv,
-    meta_conv.syntax,
-    tiny_json_conv,
+    ppx_meta_conv,
     uri
     
 Library sociaml_facebook_api_endpoints
@@ -38,9 +36,9 @@ Library sociaml_facebook_api_endpoints
   BuildDepends:
     calendar,
     csv,
-    meta_conv,
-    meta_conv.syntax,
-    tiny_json_conv,
+    ppx_meta_conv,
+    ppx_tiny_json_conv,
+    tiny_json,
     uri
     
 Executable friend_list_example
