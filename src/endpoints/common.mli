@@ -1,5 +1,7 @@
 exception Meta_conv_error of Tiny_json.Json.t Meta_conv.Error.t
 
+type id = string [@@deriving conv{json}]
+
 type calendar_iso8601 = CalendarLib.Calendar.t [@@deriving conv{json}]
 
 type calendar_us_date = CalendarLib.Calendar.t [@@deriving conv{json}]
@@ -7,7 +9,6 @@ type calendar_us_date = CalendarLib.Calendar.t [@@deriving conv{json}]
 type uri = Uri.t [@@deriving conv{json}]
 
 type csv = Csv.t [@@deriving conv{json}]
-
 
 module NumberRange : sig
   type t = {

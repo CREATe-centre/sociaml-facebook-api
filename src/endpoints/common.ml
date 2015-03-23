@@ -30,7 +30,23 @@ module X_of_json_string = struct
     | `Error e -> raise (Meta_conv_error e)  
   
 end
- 
+
+type id = string
+
+let id_of_json ?trace j = 
+  match j with
+    | Json.String s -> `Ok s
+    | Json.Number n -> `Ok n
+    | _ -> 
+      let t = match trace with | Some t -> t | None -> [] in
+      `Error (`Primitive_decoding_failure "Expected string or number", j, t)
+  
+let id_of_json_exn ?trace j =
+  id_of_json ?trace j |> function
+    | `Ok result -> result
+    | `Error e -> raise (Meta_conv_error e)
+   
+let json_of_id id = Json.String(id)
 
 type calendar_iso8601 = CalendarLib.Calendar.t
 

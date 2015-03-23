@@ -1,5 +1,5 @@
 type t = {
-  id                 : string;
+  id                 : Common.id;
   bio                : string option;
   birthday           : Common.calendar_us_date option;
   email              : string option;
@@ -11,7 +11,7 @@ type t = {
   locale             : string option;
   name               : string;
   name_format        : string option;
-  third_party_id     : string option;
+  third_party_id     : Common.id option;
   username           : string option;
   verified           : bool option;
   website            : Common.uri option;
@@ -32,7 +32,7 @@ module Home : sig
 	
 	module Application : sig
 		type t = {
-			id						 : string;
+			id						 : Common.id;
 			name					 : string;
 			namespace			 : string option;
 		} [@@deriving conv{json}]
@@ -41,7 +41,7 @@ module Home : sig
 	
 	module Category : sig
 		type t = {
-			id						 : string;
+			id						 : Common.id;
 			name					 : string;
 		} [@@deriving conv{json}]
 	end
@@ -49,7 +49,7 @@ module Home : sig
 	
 	module Profile : sig
 	  type t = {
-	    id             : string;
+	    id             : Common.id;
 	    name           : string;
 	    category       : string option;
 			category_list  : Category.t list option;
@@ -69,7 +69,7 @@ module Home : sig
 	
 	module MessageTag : sig
 		type t = {
-			id             : string;
+			id             : Common.id;
 			name           : string;
 			type'          : MessageTagType.t option;
 			offset         : int;
@@ -85,7 +85,7 @@ module Home : sig
 	
 	module Comment : sig
 		type t = {
-			id             : string;
+			id             : Common.id;
 			from           : Profile.t;
 			message        : string;
 			can_remove     : bool;
@@ -192,7 +192,7 @@ module Home : sig
   			zip						 : string option;
   			state          : string option;
   			street         : string option;
-  			located_in     : string option;
+  			located_in     : Common.id option;
   			latitude       : float;
   		} [@@deriving conv{json}]
     end
@@ -207,7 +207,7 @@ module Home : sig
 	
 	module Page : sig
 		type t = {
-			id						 : string;
+			id						 : Common.id;
 			name           : string;
 			location			 : Location.t option;
 		} [@@deriving conv{json}]
@@ -226,14 +226,14 @@ module Home : sig
 	    from           : Profile.t;
         height         : int option;
 	    icon           : Common.uri option;
-	    id             : string;
+	    id             : Common.id;
 	    is_hidden      : bool option;
 	    likes          : Likes.t option;
 	    link           : Common.uri option;
 	    message        : string option;
 	    message_tags   : MessageTagMap.t option;
 	    name           : string option;
-	    object_id      : string option;
+	    object_id      : Common.id option;
 	    picture        : Common.uri option;
 	    place          : Page.t option;
 	    privacy        : Privacy.t;
@@ -246,7 +246,7 @@ module Home : sig
 	    to'            : To.t option;
 	    type'          : Type.t;
 	    updated_time   : Common.calendar_iso8601;
-        width          : int option;
+      width          : int option;
 	    with_tags      : To.t option;
 	  } [@@deriving conv{json}]
     
@@ -278,7 +278,7 @@ module Feed : sig
 	module PublishResponse : sig
 		
 		type t = {
-			id							: string;
+			id							: Common.id;
 		} [@@deriving conv{json}]
 		
 	end

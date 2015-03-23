@@ -2,7 +2,7 @@ open Meta_conv.Open
 open Tiny_json
 
 type t = {
-  id : string;
+  id : Common.id;
   bio : string mc_option;
   birthday : Common.calendar_us_date mc_option;
   email : string mc_option;
@@ -14,7 +14,7 @@ type t = {
   locale : string mc_option;
   name : string;
   name_format : string mc_option;
-  third_party_id : string mc_option;
+  third_party_id : Common.id mc_option;
   username : string mc_option;
   verified : bool mc_option;
   website : Common.uri mc_option;
@@ -36,7 +36,7 @@ module Home = struct
 	
 	module Application = struct
 		type t = {
-			id : string;
+			id : Common.id;
 			name : string;
 			namespace : string mc_option;
 		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
@@ -45,7 +45,7 @@ module Home = struct
 	
 	module Category = struct
 		type t = {
-			id						 : string;
+			id						 : Common.id;
 			name					 : string;
 		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
@@ -53,7 +53,7 @@ module Home = struct
 	
 	module Profile = struct
     type t = {
-      id : string;
+      id : Common.id;
       name : string;
       category : string mc_option;
 			category_list : Category.t list mc_option;
@@ -73,7 +73,7 @@ module Home = struct
 	
 	module MessageTag = struct
 		type t = {
-			id : string;
+			id : Common.id;
 			name : string;
 			type' [@conv.as "type"] : MessageTagType.t mc_option;
 			offset : int;
@@ -118,7 +118,7 @@ module Home = struct
 	
 	module Comment = struct
 		type t = {
-			id : string;
+			id : Common.id;
 			from : Profile.t;
 			message : string;
 			can_remove : bool;
@@ -291,7 +291,7 @@ module Home = struct
   			zip : string mc_option;
   			state : string mc_option;
   			street : string mc_option;
-  			located_in : string mc_option;
+  			located_in : Common.id mc_option;
   			latitude : float;
   		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
     end
@@ -327,7 +327,7 @@ module Home = struct
 	
 	module Page = struct
 		type t = {
-			id : string;
+			id : Common.id;
 			name : string;
 			location : Location.t mc_option;
 		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
@@ -345,14 +345,14 @@ module Home = struct
       from : Profile.t;
 			height : int mc_option;
 			icon : Common.uri mc_option;
-      id : string;
+      id : Common.id;
 			is_hidden : bool mc_option;
 			likes : Likes.t mc_option;
 			link : Common.uri mc_option;
       message : string mc_option;
 			message_tags : MessageTagMap.t mc_option;
 			name : string mc_option;
-	    object_id : string mc_option;
+	    object_id : Common.id mc_option;
 	    picture : Common.uri mc_option;
 			place : Page.t mc_option;
 			privacy : Privacy.t;
@@ -439,7 +439,7 @@ module Feed = struct
 	
 	module PublishResponse = struct
 		type t = {
-			id	: string;
+			id	: Common.id;
 		} [@@conv.ignore_unknown_fields] [@@deriving conv{json}]
 	end
 	
