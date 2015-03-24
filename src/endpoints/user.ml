@@ -247,6 +247,7 @@ module Home = struct
 			| Video [@conv.as "video"] 
 			| Swf [@conv.as "swf"]
       | Event [@conv.as "event"]
+      | Note [@conv.as "note"]
 			[@@deriving conv{json}]
 	end
 	

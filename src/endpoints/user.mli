@@ -148,6 +148,7 @@ module Home : sig
 			| Video
 			| Swf
       | Event
+      | Note
     [@@deriving conv{json}]
 	end
 	
