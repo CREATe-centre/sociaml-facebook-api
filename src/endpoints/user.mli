@@ -86,7 +86,7 @@ module Home : sig
 	module Comment : sig
 		type t = {
 			id             : Common.id;
-			from           : Profile.t;
+			from           : Profile.t option;
 			message        : string;
 			can_remove     : bool;
 			created_time   : Common.calendar_iso8601;

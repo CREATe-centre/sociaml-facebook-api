@@ -119,7 +119,7 @@ module Home = struct
 	module Comment = struct
 		type t = {
 			id : Common.id;
-			from : Profile.t;
+			from : Profile.t mc_option;
 			message : string;
 			can_remove : bool;
 			created_time : Common.calendar_iso8601;
