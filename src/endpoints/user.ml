@@ -67,6 +67,7 @@ module Home = struct
 			| User [@conv.as "user"]
 			| Group [@conv.as "group"]
       | Application [@conv.as "application"]
+      | Event [@conv.as "event"]
 		[@@deriving conv{json}]
 	end
 	

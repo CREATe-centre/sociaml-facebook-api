@@ -63,6 +63,7 @@ module Home : sig
 			| User
 			| Group
       | Application
+      | Event
     [@@deriving conv{json}]
 	end
 	
