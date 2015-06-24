@@ -1,3 +1,9 @@
+0.4.1 / 2015-06-24
+==================
+
+  * Using ppx\_meta\_conv instead of meta_conv
+  * Updated to work with cohttp 0.18.0+ 
+
 0.4.0 / 2014-11-14
 ==================
 

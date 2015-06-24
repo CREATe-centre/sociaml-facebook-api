@@ -1,6 +1,6 @@
 OASISFormat: 0.4
 Name:        sociaml-facebook-api
-Version:     0.4.0
+Version:     0.4.1
 Synopsis:    Facebook Graph API Client Library for OCaml
 Description: 
   Access version 1.0 of the Facebook Graph API in OCaml applications.

@@ -38,7 +38,7 @@ module S = struct
     let module Body = Cohttp_lwt_body in
     let module Client = Cohttp_lwt_unix.Client in
     let module Code = Cohttp.Code in
-    let module Response = Client.Response in
+    let module Response = Cohttp.Response in
     (match meth with
      | `GET ->  Client.get uri
      | `POST -> Client.post uri)
