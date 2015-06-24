@@ -1,10 +1,10 @@
 opam-version: "1"
-name: "${name}"
-version: "${version}"
+name: "sociaml-facebook-api"
+version: "0.4.1"
 maintainer: "dominic.price@nottingham.ac.uk"
-homepage: "${homepage}"
-authors: [ "${authors}" ]
-license: "${license}"
+homepage: "https://github.com/dominicjprice/sociaml-facebook-api"
+authors: [ "Dominic Price" ]
+license: "ISC"
 ocaml-version: [ >= "4.02.1" ]
 build: [
   ["oasis" "setup"]
@@ -16,8 +16,8 @@ install: [
 ]
 remove: [
   [make "uninstall"]
-  ["ocamlfind" "remove" "${library(sociaml_facebook_api).findlibname}"]
-  ["ocamlfind" "remove" "${library(sociaml_facebook_api_endpoints).findlibname}"]
+  ["ocamlfind" "remove" "sociaml_facebook_api"]
+  ["ocamlfind" "remove" "endpoints"]
 ]
 depends: [
   "calendar"

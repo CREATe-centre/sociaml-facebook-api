@@ -59,3 +59,4 @@ opam-release:
 	for f in descr opam url; do \
 		./oasis-vars "$(TEMPLATE_DIR)/$$f" > $(DIR)/$$f; \
 	done
+	cp $(DIR)/opam .
