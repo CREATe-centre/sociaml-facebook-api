@@ -25,9 +25,10 @@ depends: [
   "core_kernel"
   "csv"
   "lwt"
-  "meta_conv"
   "oasis"
+  "ppx_meta_conv"
   "ssl"
+  "tiny_json"
   "tiny_json_conv"
   "uri"
 ]
