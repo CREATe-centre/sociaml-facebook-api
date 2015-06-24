@@ -5,7 +5,7 @@ maintainer: "dominic.price@nottingham.ac.uk"
 homepage: "${homepage}"
 authors: [ "${authors}" ]
 license: "${license}"
-ocaml-version: [ >= "4.01.0" ]
+ocaml-version: [ >= "4.02.1" ]
 build: [
   ["oasis" "setup"]
   ["./configure" "--prefix" prefix]

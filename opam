@@ -5,7 +5,7 @@ maintainer: "dominic.price@nottingham.ac.uk"
 homepage: "https://github.com/dominicjprice/sociaml-facebook-api"
 authors: [ "Dominic Price" ]
 license: "ISC"
-ocaml-version: [ >= "4.01.0" ]
+ocaml-version: [ >= "4.02.1" ]
 build: [
   ["oasis" "setup"]
   ["./configure" "--prefix" prefix]
